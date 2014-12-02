@@ -12,7 +12,7 @@ protected:
 
 private: 
 	Colaborador(){} 
-
+ 
 public:
 	//Construtor
 	Colaborador(string n, string e, string end, string se, int cdg){

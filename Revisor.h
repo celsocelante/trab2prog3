@@ -5,7 +5,7 @@
 class Revisor : public Colaborador
 {
 
-private:
+private: 
 
 	set<string> instituicoes;
 	set<Artigo> revisoes;

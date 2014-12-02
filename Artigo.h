@@ -4,7 +4,7 @@
 class Artigo
 {
 
-private:
+private: 
 	string titulo;
 	int codigo;
 	//set<Autor> autores;
