@@ -1,5 +1,10 @@
-#include "Colaborador.h"
+
+#ifndef AUTOR_H
+#define AUTOR_H
+
 #include <set>
+#include "Colaborador.h"
+
 class Autor: public Colaborador
 {
 
@@ -14,5 +19,8 @@ public:
 		instituicoes.insert(instituicao);
 	}
 
-
+	
 	};
+	
+	
+#endif /* AUTOR_H */

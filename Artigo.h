@@ -1,3 +1,6 @@
+#ifndef ARTIGO_H
+#define ARTIGO_H
+
 #include "Autor.h"
 
 
@@ -7,11 +10,10 @@ class Artigo
 private: 
 	string titulo;
 	int codigo;
-	//set<Autor> autores;
+	set<Autor*> autores;
 	//Implementar conjunto de avaliacoes (revisoes)
 	
-	//Ver como não inicializar/inicilizar referencias
-	// -> Autor& contato;
+	Autor* contato;
 
 	Artigo(){} 
 
@@ -22,12 +24,12 @@ public:
 		titulo = ttl;
 	}
 
-	/*void vinculaAutor(Autor& autor){
-		autores.insert(autor);
+	void vinculaAutor(Autor& autor){
+		autores.insert(&autor);
 	}
 
 	//Escrever método para adicionar avaliacao
-
+/*
 	bool contemAutor(Autor autor){
 		return autores.find(autor) != autores.end();
 	}*/
@@ -45,18 +47,19 @@ public:
 	string getTitulo(){
 		return titulo;
 	}
-/*
+
 	string getContato(){
-		return contato.getNome();
+		return contato->getNome();
 	}	
 
 	//Escrever método para retornar revisões,
 	//retornar média das avaliações nas revisões
 	//retornar quantidade de revisoes
 
-	void setContato(Autor& autor){
+	void setContato(Autor* autor){
 		contato = autor;
 	}
 
-	*/
 };
+
+#endif /* ARTIGO_H */

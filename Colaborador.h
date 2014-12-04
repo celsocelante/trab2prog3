@@ -1,4 +1,8 @@
+#ifndef COLABORADOR_H
+#define COLABORADOR_H
+
 #include <string>
+
 using namespace std;
 
 class Colaborador
@@ -32,3 +36,6 @@ public:
 		return nome;
 	}
 };
+
+
+#endif /* COLABORADOR_H */

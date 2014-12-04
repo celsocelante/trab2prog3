@@ -1,6 +1,9 @@
-#include "Colaborador.h"
-#include "Artigo.h"
+#ifndef REVISOR_H
+#define REVISOR_H
+
 #include <set>
+#include "Artigo.h"
+#include "Colaborador.h"
 
 class Revisor : public Colaborador
 {
@@ -8,7 +11,7 @@ class Revisor : public Colaborador
 private: 
 
 	set<string> instituicoes;
-	set<Artigo> revisoes;
+	set<Artigo*> revisoes;
 
 public:
 	//Construtor
@@ -19,7 +22,7 @@ public:
 	}
 
 	void vinculaRevisao(Artigo& artigo){
-		revisoes.insert(artigo);
+		revisoes.insert(&artigo);
 	}
 
 	bool participuDaEdicao(){
@@ -35,3 +38,6 @@ public:
 	}
 
 	};
+	
+	
+#endif /* REVISOR_H */ 
