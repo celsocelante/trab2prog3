@@ -1,8 +1,8 @@
 #ifndef ARTIGO_H
 #define ARTIGO_H
 
+#include "Avaliacao.h"
 #include "Autor.h"
-
 
 class Artigo
 {
@@ -11,8 +11,7 @@ private:
 	string titulo;
 	int codigo;
 	set<Autor*> autores;
-	//Implementar conjunto de avaliacoes (revisoes)
-	
+	set<Avaliacao*> revisoes;	
 	Autor* contato;
 
 	Artigo(){} 
@@ -24,41 +23,29 @@ public:
 		titulo = ttl;
 	}
 
-	void vinculaAutor(Autor& autor){
-		autores.insert(&autor);
-	}
+	void vinculaAutor(Autor& autor);
 
-	//Escrever método para adicionar avaliacao
-/*
-	bool contemAutor(Autor autor){
-		return autores.find(autor) != autores.end();
-	}*/
+	void setContato(Autor& autor);
 
-	/*bool quantidadeRevisoes(){
-		return revisoes.size()==3;
-	}*/
+	void adicionaAvaliacao(Avaliacao& avaliacao);
 
-	//Getters e setters
+	int getCodigo();
 
-	int getCodigo(){
-		return codigo;
-	}
+	string getTitulo();
 
-	string getTitulo(){
-		return titulo;
-	}
+	string getContato();
 
-	string getContato(){
-		return contato->getNome();
-	}	
+	bool contemAutor(Autor& autor);
 
-	//Escrever método para retornar revisões,
-	//retornar média das avaliações nas revisões
-	//retornar quantidade de revisoes
+	bool quantidadeRevisoes();
 
-	void setContato(Autor* autor){
-		contato = autor;
-	}
+	set<Avaliacao*> getRevisao();
+
+	int getQuantidadeRevisoes();
+
+	double getMedia();
+
+
 
 };
 

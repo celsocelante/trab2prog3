@@ -2,8 +2,9 @@
 #define REVISOR_H
 
 #include <set>
-#include "Artigo.h"
 #include "Colaborador.h"
+
+class Artigo; //forward declaration
 
 class Revisor : public Colaborador
 {
@@ -17,25 +18,15 @@ public:
 	//Construtor
 	Revisor(string n, string e, string end, string se, int cdg):Colaborador(n,e,end,se,cdg) { };
 
-	void vinculaInstituicao(string instituicao){
-		instituicoes.insert(instituicao);
-	}
+	void vinculaInstituicao(string instituicao);
 
-	void vinculaRevisao(Artigo& artigo){
-		revisoes.insert(&artigo);
-	}
+	void vinculaRevisao(Artigo& artigo);
 
-	bool participuDaEdicao(){
-		return !revisoes.empty();
-	}
+	bool participuDaEdicao();
 
-	set<artigo>& getRevisoes(){
-		return revisoes;
-	}
+	set<Artigo*>& getRevisoes();
 
-	int getQuantidadeArtigos(){
-		return revisoes.size();
-	}
+	int getQuantidadeArtigos();
 
 	};
 	

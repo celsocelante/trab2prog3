@@ -28,13 +28,9 @@ public:
 	}
 
 	//Getters e setters
-	int getCodigo(){
-		return codigo;
-	}
+	int getCodigo();
 
-	string getNome(){
-		return nome;
-	}
+	string getNome();
 };
 
 

@@ -1,4 +1,3 @@
-
 #ifndef AUTOR_H
 #define AUTOR_H
 
@@ -15,9 +14,7 @@ public:
 	//Construtor
 	Autor(string n, string e, string end, string se, int cdg):Colaborador(n,e,end,se,cdg) { };
 
-	void vinculaInstituicao(string instituicao){
-		instituicoes.insert(instituicao);
-	}
+	void vinculaInstituicao(string instituicao);
 
 	
 	};
