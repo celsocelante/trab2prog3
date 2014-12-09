@@ -9,7 +9,7 @@ class Artigo; //forward declaration
 class Revisor : public Colaborador
 {
 
-private: 
+private:
 
 	set<string> instituicoes;
 	set<Artigo*> revisoes;
@@ -28,7 +28,9 @@ public:
 
 	int getQuantidadeArtigos();
 
-	};
 	
-	
-#endif /* REVISOR_H */ 
+
+};
+
+
+#endif /* REVISOR_H */

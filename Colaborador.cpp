@@ -2,10 +2,10 @@
 
 
 	//Getters e setters
-	int Colaborador::getCodigo(){
+	int Colaborador::getCodigo() const{
 		return codigo;
 	}
 
-	string Colaborador::getNome(){
+	string Colaborador::getNome() const{
 		return nome;
 	}

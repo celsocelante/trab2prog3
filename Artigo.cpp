@@ -34,7 +34,7 @@
 			return "";
 
 		else return contato->getNome();
-	}	
+	}
 
 	set<Avaliacao*> Artigo::getRevisao(){
 		return revisoes;
@@ -44,7 +44,7 @@
 		return revisoes.size();
 	}
 
-	double Artigo::getMedia(){
+	double Artigo::getMedia() const{
 		double media=0;
 		set<Avaliacao*>::iterator it;
 
@@ -54,4 +54,3 @@
 		}
 		return media/3;
 	}
-

@@ -14,9 +14,9 @@ protected:
 	string senha;
 	int codigo;
 
-private: 
-	Colaborador(){} 
- 
+private:
+	Colaborador(){}
+
 public:
 	//Construtor
 	Colaborador(string n, string e, string end, string se, int cdg){
@@ -28,9 +28,14 @@ public:
 	}
 
 	//Getters e setters
-	int getCodigo();
+	int getCodigo() const;
 
-	string getNome();
+	string getNome() const;
+
+	bool operator< (const Colaborador* c) const{
+		return nome < c->getNome();
+	}
+
 };
 
 

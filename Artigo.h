@@ -7,16 +7,16 @@
 class Artigo
 {
 
-private: 
+private:
 	string titulo;
 	int codigo;
 	set<Autor*> autores;
-	set<Avaliacao*> revisoes;	
+	set<Avaliacao*> revisoes;
 	Autor* contato;
 
-	Artigo(){} 
+	Artigo(){}
 
-public: 
+public:
 
 	Artigo(int cdg, string ttl){
 		codigo = cdg;
@@ -43,9 +43,11 @@ public:
 
 	int getQuantidadeRevisoes();
 
-	double getMedia();
+	double getMedia() const;
 
-
+	bool operator< (const Artigo* a) const{
+			return getMedia() > a->getMedia();
+	}
 
 };
 
