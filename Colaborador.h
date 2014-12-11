@@ -13,10 +13,8 @@ protected:
 	string endereco;
 	string senha;
 	int codigo;
-
 private:
 	Colaborador(){}
-
 public:
 	//Construtor
 	Colaborador(string n, string e, string end, string se, int cdg){
@@ -26,7 +24,6 @@ public:
 		senha = se;
 		codigo = cdg;
 	}
-
 	//Getters e setters
 	int getCodigo() const;
 

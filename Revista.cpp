@@ -1,60 +1,70 @@
-#include "Revista.h"
-
-  void Revista::adicionaTema(Tema& tema){
-    temas.insert(&tema);
-  }
-
-  void Revista::adicionaColaborador(Colaborador& colaborador){
-      colaboradores.insert(&colaborador);
-  }
-
-  //Método para adicionar inconsistencia
-
-  Colaborador* Revista::buscaColaborador(int codigo){
-    set<Colaborador*>::iterator it;
-
-    for(it = colaboradores.begin(); it!= colaboradores.end(); it++{
-        if (codigo == it->getCodigo())
-          return it;
+  #include "Revista.h"
+    void Revista::adicionaTema(Tema& tema){
+      temas.insert(&tema);
     }
-    return NULL;
-  }
 
-  Colaborador* Revista::buscaColaborador(string nome){
-    set<Colaborador*>::iterator it;
-
-    for(it = colaboradores.begin(); it!= colaboradores.end(); it++{
-        if (nome == it->getNome())
-          return it;
+    void Revista::adicionaColaborador(Colaborador& colaborador){
+        colaboradores.insert(&colaborador);
     }
-    return NULL;
-  }
 
-  Tema* Revista::buscaTema(string titulo){
-    set<Tema*>::iterator it;
-
-    for(it = temas.begin(); it!=temas.end(); it++) {
-        if (titulo == it->getTitulo())
-          return it;
+    void Revista::adicionaInconsistencia(Inconsistencia& inconsistencia){
+      inconsistencias.insert(&inconsistencia);
     }
-    return NULL;
 
-  }
+    Colaborador* Revista::buscaColaborador(int codigo){
+      set<Colaborador*>::iterator it;
 
-  void Revista::setEdicao(Edicao& e){
-    edicao = &e;
-  }
+      for(it = colaboradores.begin(); it!= colaboradores.end(); it++){
+          Colaborador* c = *it;
+          if (codigo == c->getCodigo())
+            return c;
+      }
+      return NULL;
+    }
 
-  Edicao& Revista::getEdicao() const{
-    return *edicao;
-  }
+    Colaborador* Revista::buscaColaborador(string nome){
+      set<Colaborador*>::iterator it;
 
-  set<Colaborador*>& Revista::getColaboradores() const{
-      return colaboradores;
-  }
+      for(it = colaboradores.begin(); it!= colaboradores.end(); it++){
+          Colaborador* c = *it;
+          if (nome == c->getNome())
+            return c;
+      }
+      return NULL;
+    }
 
-  //Metodo para retornar inconsistencias
+    Tema* Revista::buscaTema(string titulo){
+      set<Tema*>::iterator it;
 
-  int Revista::getRevisoresEnvolvidos();
+      for(it = temas.begin(); it!=temas.end(); it++) {
+          Tema* t = *it;
+          if (titulo == t->getTitulo())
+            return t;
+      }
+      return NULL;
 
-  double Revista::getArtigosRevisados();
+    }
+
+    void Revista::setEdicao(Edicao& e){
+      edicao = &e;
+    }
+
+    Edicao& Revista::getEdicao() const{
+      return *edicao;
+    }
+
+    set<Colaborador*> Revista::getColaboradores() const{
+        return colaboradores;
+    }
+
+    set<Inconsistencia*> Revista::getInconsistencias() const{
+      return inconsistencias;
+    }
+
+    int Revista::getRevisoresEnvolvidos(){
+
+    }
+
+    double Revista::getArtigosRevisados(){
+
+    }

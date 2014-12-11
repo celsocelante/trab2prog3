@@ -4,16 +4,13 @@
 #include "Revisor.h"
 
 class Tema {
-
 private:
     string titulo;
     int codigo;
     set<Revisor*> revisores;
 
     Tema() {}
-
 public:
-
     Tema(string t, int cdg){
         titulo = t;
         codigo = cdg;
@@ -26,10 +23,6 @@ public:
     int getQuantidadeRevisores();
 
     bool contemRevisor(Revisor& revisor);
-
 };
-
-
-
 
 #endif /* TEMA_H */

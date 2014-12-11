@@ -5,7 +5,6 @@
 #include "Revisor.h"
 
 class Avaliacao{
-
 private:
 	double originalidade;
 	double conteudo;
@@ -14,7 +13,6 @@ private:
 	Revisor* revisor;
 
 	Avaliacao(){}
-
 public:
 	Avaliacao(Revisor& r){
 		revisor = &r;
@@ -30,7 +28,6 @@ public:
 	bool operator< (const Avaliacao* a) const{
 		return revisor->getNome() < a->getRevisor()->getNome();
 	}
-
 };
 
 
