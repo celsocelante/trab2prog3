@@ -6,7 +6,6 @@
 
 class Artigo
 {
-
 private:
 	string titulo;
 	int codigo;
@@ -15,7 +14,6 @@ private:
 	Autor* contato;
 
 	Artigo(){}
-
 public:
 
 	Artigo(int cdg, string ttl){
@@ -29,7 +27,7 @@ public:
 
 	void adicionaAvaliacao(Avaliacao& avaliacao);
 
-	int getCodigo();
+	int getCodigo() const;
 
 	string getTitulo();
 
@@ -45,10 +43,7 @@ public:
 
 	double getMedia() const;
 
-	bool operator< (const Artigo* a) const{
-			return getMedia() > a->getMedia();
-	}
-
+	bool operator< (const Artigo* a) const;
 };
 
 #endif /* ARTIGO_H */

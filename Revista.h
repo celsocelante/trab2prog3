@@ -2,33 +2,28 @@
 #define REVISTA_H
 
 #include "Edicao.h"
+#include "Inconsistencia.h"
 
 class Revista {
-
 private:
-
     string nome;
     Edicao* edicao;
     set<Tema*> temas;
     set<Colaborador*> colaboradores;
-
-    //Conjunto de inconsistencias
+    set<Inconsistencia*> inconsistencias;
 
     Revista() {}
-
 public:
-
   //Construtor
   Revista(string n){
     nome = n;
   }
 
-
   void adicionaTema(Tema& tema);
 
   void adicionaColaborador(Colaborador& colaborador);
 
-  //Método para adicionar inconsistencia
+  void adicionaInconsistencia(Inconsistencia& inconsistencia);
 
   Colaborador* buscaColaborador(int codigo);
 
@@ -40,20 +35,13 @@ public:
 
   Edicao& getEdicao() const;
 
-  set<Colaborador*>& getColaboradores() const;
+  set<Colaborador*> getColaboradores() const;
 
-  //Metodo para retornar inconsistencias
+  set<Inconsistencia*> getInconsistencias() const;
 
   int getRevisoresEnvolvidos();
 
   double getArtigosRevisados();
-
-
-
-
-
 };
-
-
 
 #endif /* REVISTA_H */

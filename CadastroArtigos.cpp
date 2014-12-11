@@ -42,8 +42,9 @@ CadastroArtigos::CadastroArtigos(char* entrada, Revista* r){
       }
 
       /* CONSTRUIR OBJETO AQUI */
-
       cout << "Contato: " << contato_int << endl;
+
+
       cout << "---" << endl;
   }
 }

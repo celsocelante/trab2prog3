@@ -27,8 +27,8 @@
 
         getline(inf, linha);
         
-        while (inf) {
-            getline(inf, linha);
+        while (getline(inf, linha)) {
+
         	stringstream lineStream(linha);
 
             getline(lineStream,codigo,';');
@@ -44,11 +44,9 @@
                 contato = autores_temp;
 
             else {
-                istringstream ss(autores_temp);
+                stringstream ss(autores_temp);
                 cout << "Autores: " << endl;
                 while(getline(ss,cell,',')){
-                    if(cell[0] == ' ')
-                        cell.erase(0,0);
                     cout << cell << endl;
                     // Adiciona os autores à lista de autores
                 }
@@ -60,6 +58,7 @@
 
             cout << "Contato: " << contato << endl;
             cout << "---" << endl;
+        
         }
      
         return 0;

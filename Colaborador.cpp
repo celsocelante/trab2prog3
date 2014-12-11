@@ -1,11 +1,9 @@
-#include "Colaborador.h"
+	#include "Colaborador.h"
+		//Getters e setters
+		int Colaborador::getCodigo() const{
+			return codigo;
+		}
 
-
-	//Getters e setters
-	int Colaborador::getCodigo() const{
-		return codigo;
-	}
-
-	string Colaborador::getNome() const{
-		return nome;
-	}
+		string Colaborador::getNome() const{
+			return nome;
+		}

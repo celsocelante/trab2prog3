@@ -1,40 +1,39 @@
-#include "Edicao.h"
+  #include "Edicao.h"
+    void Edicao::submeterArtigo(Artigo& artigo){
+        submetidos.insert(&artigo);
+    }
 
+    Artigo* Edicao::buscaArtigo(int codigo){
+        set<Artigo*>::iterator it;
 
-  void Edicao::submeterArtigo(Artigo& artigo){
-      submetidos.insert(&artigo);
-  }
+        for(it = submetidos.begin(); it != submetidos.end(); it++){
+            Artigo* a = *it;
+            if (a->getCodigo() == codigo)
+              return a;
+        }
+        return NULL;
+    }
 
-  Artigo* Edicao::buscaArtigo(int codigo){
-      set<Artigo*>::iterator it;
+    Tema& Edicao::getTema() const{
+        return *tema;
+    }
 
-      for(it = submetidos.begin(); it != submetidos.end(); it++){
-          if (it->getCodigo() == codigo)
-            return it;
-      }
-      return NULL;
-  }
+    int Edicao::getNumero(){
+        return numero;
+    }
 
-  Tema& Edicao::getTema() const{
-      return *tema;
-  }
+    int Edicao::getVolume(){
+        return volume;
+    }
 
-  int Edicao::getNumero(){
-      return numero;
-  }
+    string Edicao::getData(){
+        return mesAno;
+    }
 
-  int Edicao::getVolume(){
-      return volume;
-  }
+    Colaborador& Edicao::getEditorChefe() const{
+        return *editorChefe;
+    }
 
-  string Edicao::getData(){
-      return mesAno;
-  }
-
-  Colaborador& Edicao::getEditorChefe() const{
-      return *editorChefe;
-  }
-
-  set<Artigo*>& Edicao::getArtigos(){
-      return submetidos;
-  }
+    set<Artigo*> Edicao::getArtigos() const{
+        return submetidos;
+    }

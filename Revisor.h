@@ -8,12 +8,9 @@ class Artigo; //forward declaration
 
 class Revisor : public Colaborador
 {
-
 private:
-
 	set<string> instituicoes;
 	set<Artigo*> revisoes;
-
 public:
 	//Construtor
 	Revisor(string n, string e, string end, string se, int cdg):Colaborador(n,e,end,se,cdg) { };
@@ -27,10 +24,6 @@ public:
 	set<Artigo*>& getRevisoes();
 
 	int getQuantidadeArtigos();
-
-	
-
 };
-
 
 #endif /* REVISOR_H */
