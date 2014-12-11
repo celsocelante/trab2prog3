@@ -9,14 +9,14 @@
     int main()
     {
         using namespace std;
-        
+
         ifstream inf("artigos.csv");
-     
+
         if (!inf) {
             cerr << "Uh oh, Sample.dat could not be opened for reading!" << endl;
             exit(1);
         }
-        
+
         string cell, linha;
 
         string codigo;
@@ -26,9 +26,9 @@
 
 
         getline(inf, linha);
-        
-        while (inf) {
-            getline(inf, linha);
+
+        while (getline(inf, linha)) {
+
         	stringstream lineStream(linha);
 
             getline(lineStream,codigo,';');
@@ -56,11 +56,11 @@
 
             /* CONSTRUIR OBJETO AQUI */
 
-            
+
 
             cout << "Contato: " << contato << endl;
             cout << "---" << endl;
         }
-     
+
         return 0;
     }

@@ -13,8 +13,8 @@ CadastroArtigos::CadastroArtigos(string entrada, Revista* r){
 
   getline(inf, linha);
 
-  while (inf) {
-      getline(inf, linha);
+  while (getline(inf, linha)) {
+
       stringstream lineStream(linha);
 
       getline(lineStream,codigo,';');
@@ -45,7 +45,7 @@ CadastroArtigos::CadastroArtigos(string entrada, Revista* r){
 
       int contato_num = atoi(contato.c_str());
 
-      
+
 
       cout << "Contato: " << contato_num << endl;
       cout << "---" << endl;
