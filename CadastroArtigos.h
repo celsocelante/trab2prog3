@@ -17,15 +17,22 @@ class CadastroArtigos {
     private:
         string cell, linha;
         string codigo;
+	int codigo_int;
+	
         string titulo;
-        string autores_temp;
+	
+        string autores;
+	int autor_int;
+	
         string contato;
+	int contato_int;
+	
 	Revista* revista;
 	
         CadastroArtigos(){}
 
     public:
-	CadastroArtigos(string entrada, Revista* r);
+	CadastroArtigos(char* entrada, Revista* r);
         
 };
 
