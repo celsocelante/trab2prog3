@@ -32,7 +32,7 @@ class CadastroArtigos {
         CadastroArtigos(){}
 
     public:
-	CadastroArtigos(char* entrada, Revista* r);
+	CadastroArtigos(char* entrada, Revista& revista);
         
 };
 
