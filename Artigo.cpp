@@ -1,6 +1,6 @@
 	#include "Artigo.h"
-		void Artigo::vinculaAutor(Autor& autor){
-			autores.insert(&autor);
+		void Artigo::vinculaAutor(Autor* autor){
+			autores.insert(autor);
 		}
 
 		bool Artigo::contemAutor(Autor& autor){

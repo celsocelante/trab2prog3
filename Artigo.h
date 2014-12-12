@@ -21,7 +21,7 @@ public:
 		titulo = ttl;
 	}
 
-	void vinculaAutor(Autor& autor);
+	void vinculaAutor(Autor* autor);
 
 	void setContato(Autor& autor);
 

@@ -55,7 +55,7 @@ CadastroArtigos::CadastroArtigos(char* entrada, Revista& revista){
           Inconsistencia i = Inconsistencia(texto_inconsistencia,6);
           revista.adicionaInconsistencia(i);
        } else {
-          Autor autor = (Autor) c; // INCOMPATIBILIDADE DE PONTEIROS E/OU REFERÊNCIAS!!!1111!!!111!!1
+          Autor* autor = dynamic_cast<Autor*>(c); // INCOMPATIBILIDADE DE PONTEIROS E/OU REFERÊNCIAS!!!1111!!!111!!1
           artigo.vinculaAutor(autor);
        }
 
