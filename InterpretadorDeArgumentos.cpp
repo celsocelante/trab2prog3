@@ -1,5 +1,7 @@
 #include "InterpretadorDeArgumentos.h"
+
 InterpretadorDeArgumentos::InterpretadorDeArgumentos(const char* args[], int argc){
+
 
     if(argc != 11){
       // Imprime mensagem de erro se a quantidade ideal de parâmetros não estiver sendo respeitada
@@ -28,6 +30,12 @@ InterpretadorDeArgumentos::InterpretadorDeArgumentos(const char* args[], int arg
 }
 
 // Método para retornar o que foi processado pelo classe
+
 vector<const char*> InterpretadorDeArgumentos::retornaEntradas(){
   return entradas;
+}
+
+vector<char*> InterpretadorDeArgumentos::retornaEntradas(){
+
+	return entradas;
 }

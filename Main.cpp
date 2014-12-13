@@ -1,65 +1,29 @@
-	#include "Colaborador.h"
-	#include "Revisor.h"
-	#include "Artigo.h"
-	#include "Autor.h"
-	#include "Avaliacao.h"
-	#include "Revista.h"
-	#include <iostream>
-	#include "CadastroPessoas.h"
-	#include "CadastroTemas.h"
-	#include "CadastroEdicao.h"
-	#include "CadastroArtigos.h"
-	#include "CadastroRevisoes.h"
+#include "Colaborador.h"
+#include "Revisor.h"
+#include "Artigo.h"
+#include "Autor.h"
+#include "Avaliacao.h"
+#include "Revista.h"
+#include <iostream>
+#include "CadastroPessoas.h"
+#include "CadastroTemas.h"
+#include "CadastroEdicao.h"
+#include "CadastroArtigos.h"
+#include "CadastroRevisoes.h"
+#include "InterpretadorDeArgumentos.h"
 
-	int main(void){
+int main(int argc, char** argv){
 
-		Autor c("Marcos","xxx","en","senha",10);
-		c.vinculaInstituicao("UfES");
-		cout << c.getNome() << endl;
+	Revista revista = Revista("Engesoft");
+	InterpretadorDeArgumentos argumentos = InterpretadorDeArgumentos(argv,argc);
+	vector<char*> entradas = argumentos.retornaEntradas();
 
-		Artigo a(100,"Um artigo");
-		a.setContato(&c);
-		
-		a.vinculaAutor(&c);
+	CadastroPessoas pessoas = CadastroPessoas(entradas[2], revista);
+    CadastroTemas temas = CadastroTemas(entradas[1], revista);
+    CadastroEdicao edicao = CadastroEdicao(entradas[0], revista);
+    CadastroArtigos artigos = CadastroArtigos(entradas[3], revista);
+    CadastroRevisoes revisoes = CadastroRevisoes(entradas[4], revista);
 
-		Revisor r("Prado","xxx","en","senha",2);
-		cout << r.getNome() << endl;
+	return 0;
 
-		cout << a.getContato() << endl;
-		
-		Avaliacao ac(&r);
-		cout << ac.getRevisor()->getNome() << endl;
-
-		Revista re("Engsoft");
-		//re.adicionaColaborador(&r);
-		//cout << re.buscaColaborador("Prado")->getCodigo() << endl;
-		
-		string s = "pessoas.csv";
-		const char* arq_pessoas = (s.c_str());
-
-		CadastroPessoas cp(arq_pessoas,&re);
-		cout << re.getColaboradores().size() << endl;
-
-
-		string tem = "temas.csv";
-		const char* arq_temas = tem.c_str();
-		CadastroTemas ct(arq_temas,&re);
-
-
-		string ed= "edicao.txt";
-		const char* arq_edicao = ed.c_str();
-		CadastroEdicao edc(arq_edicao,&re);	
-		cout << re.getEdicao()->getTema().getTitulo() << endl;
-
-
-		string art = "artigos.csv";
-		const char* arq_artigos = art.c_str();
-		CadastroArtigos artg(arq_artigos,&re);
-
-		string rev = "revisoes.csv";
-		const char* arq_revisoes = rev.c_str();
-		CadastroRevisoes revis(arq_revisoes,&re);
-
-		return 0;
-
-		} 
+} 
