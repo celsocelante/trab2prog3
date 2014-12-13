@@ -25,7 +25,7 @@ public:
 
 	void setContato(Autor* autor);
 
-	void adicionaAvaliacao(Avaliacao& avaliacao);
+	void adicionaAvaliacao(Avaliacao* avaliacao);
 
 	int getCodigo() const;
 

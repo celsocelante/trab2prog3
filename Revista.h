@@ -19,11 +19,11 @@ public:
     nome = n;
   }
 
-  void adicionaTema(Tema& tema);
+  void adicionaTema(Tema* tema);
 
-  void adicionaColaborador(Colaborador& colaborador);
+  void adicionaColaborador(Colaborador* colaborador);
 
-  void adicionaInconsistencia(Inconsistencia& inconsistencia);
+  void adicionaInconsistencia(Inconsistencia* inconsistencia);
 
   Colaborador* buscaColaborador(int codigo);
 

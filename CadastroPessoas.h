@@ -14,15 +14,12 @@ using namespace std;
 
 class CadastroPessoas {
     
-    //private:
-	
+private:
 	Revista* revista;
-	
-    CadastroPessoas(){}
+	CadastroPessoas(){}
 
-    public:
-	CadastroPessoas(char* entrada, Revista& revista);
-        
+public:
+	CadastroPessoas(const char* entrada, Revista* revista);    
 };
 
 #endif

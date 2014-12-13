@@ -27,7 +27,7 @@ public:
     editorChefe = &c;
   }
 
-  void submeterArtigo(Artigo& artigo);
+  void submeterArtigo(Artigo* artigo);
 
   Artigo* buscaArtigo(int codigo);
 

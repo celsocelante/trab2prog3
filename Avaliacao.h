@@ -14,8 +14,8 @@ private:
 
 	Avaliacao(){}
 public:
-	Avaliacao(Revisor& r){
-		revisor = &r;
+	Avaliacao(Revisor* r){
+		revisor = r;
 	}
 
 	Revisor* getRevisor() const;

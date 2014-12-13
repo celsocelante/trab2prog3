@@ -4,8 +4,8 @@
 			instituicoes.insert(instituicao);
 		}
 
-		void Revisor::vinculaRevisao(Artigo& artigo){
-			revisoes.insert(&artigo);
+		void Revisor::vinculaRevisao(Artigo* artigo){
+			revisoes.insert(artigo);
 		}
 
 		bool Revisor::participuDaEdicao(){

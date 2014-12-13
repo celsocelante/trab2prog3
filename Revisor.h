@@ -17,13 +17,17 @@ public:
 
 	void vinculaInstituicao(string instituicao);
 
-	void vinculaRevisao(Artigo& artigo);
+	void vinculaRevisao(Artigo* artigo);
 
 	bool participuDaEdicao();
 
 	set<Artigo*>& getRevisoes();
 
 	int getQuantidadeArtigos();
+
+	bool operator< (const Revisor* r) const{
+		return codigo < r->getCodigo();
+	}
 };
 
 #endif /* REVISOR_H */

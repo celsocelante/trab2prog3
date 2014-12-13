@@ -5,6 +5,7 @@
 	#include "Avaliacao.h"
 	#include "Revista.h"
 	#include <iostream>
+	#include "CadastroPessoas.h"
 
 	int main(void){
 
@@ -13,21 +14,28 @@
 		cout << c.getNome() << endl;
 
 		Artigo a(100,"Um artigo");
-		a.setContato(c);
+		a.setContato(&c);
 		
-		a.vinculaAutor(c);
+		a.vinculaAutor(&c);
 
 		Revisor r("Prado","xxx","en","senha",2);
 		cout << r.getNome() << endl;
 
 		cout << a.getContato() << endl;
 		
-		Avaliacao ac(r);
+		Avaliacao ac(&r);
 		cout << ac.getRevisor()->getNome() << endl;
 
 		Revista re("Engsoft");
-		re.adicionaColaborador(r);
+		//re.adicionaColaborador(&r);
+		//cout << re.buscaColaborador("Prado")->getCodigo() << endl;
+		
+		string s = "pessoas.csv";
+		const char* arq_pessoas = (s.c_str());
 
-		cout << re.buscaColaborador("Prado")->getCodigo() << endl;
+		CadastroPessoas cp(arq_pessoas,&re);
+//		cout << re.getColaboradores().size() << endl;
+
+
 		return 0;
 		} 

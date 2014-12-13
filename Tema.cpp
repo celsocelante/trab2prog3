@@ -3,8 +3,8 @@
             return titulo;
         }
 
-        void Tema::vinculaRevisor(Revisor& revisor){
-            revisores.insert(&revisor);
+        void Tema::vinculaRevisor(Revisor* revisor){
+            revisores.insert(revisor);
         }
 
         int Tema::getQuantidadeRevisores(){

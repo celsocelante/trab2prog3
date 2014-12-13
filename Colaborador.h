@@ -31,7 +31,7 @@ public:
 	string getNome() const;
 
 	bool operator< (const Colaborador* c) const{
-		return nome < c->getNome();
+		return codigo < c->getCodigo();
 	}
 
 };

@@ -1,14 +1,14 @@
   #include "Revista.h"
-    void Revista::adicionaTema(Tema& tema){
-      temas.insert(&tema);
+    void Revista::adicionaTema(Tema* tema){
+      temas.insert(tema);
     }
 
-    void Revista::adicionaColaborador(Colaborador& colaborador){
-        colaboradores.insert(&colaborador);
+    void Revista::adicionaColaborador(Colaborador* colaborador){
+        colaboradores.insert(colaborador);
     }
 
-    void Revista::adicionaInconsistencia(Inconsistencia& inconsistencia){
-      inconsistencias.insert(&inconsistencia);
+    void Revista::adicionaInconsistencia(Inconsistencia* inconsistencia){
+      inconsistencias.insert(inconsistencia);
     }
 
     Colaborador* Revista::buscaColaborador(int codigo){

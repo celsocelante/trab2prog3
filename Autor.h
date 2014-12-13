@@ -13,6 +13,10 @@ public:
 	Autor(string n, string e, string end, string se, int cdg):Colaborador(n,e,end,se,cdg) { };
 
 	void vinculaInstituicao(string instituicao);	
+
+	bool operator< (const Autor* a) const{
+		return codigo < a->getCodigo();
+	}
 };
 	
 	

@@ -7,8 +7,8 @@
 			return autores.find(autor) != autores.end();
 		}
 
-		void Artigo::adicionaAvaliacao(Avaliacao& avaliacao){
-			revisoes.insert(&avaliacao);
+		void Artigo::adicionaAvaliacao(Avaliacao* avaliacao){
+			revisoes.insert(avaliacao);
 		}
 
 		bool Artigo::quantidadeRevisoes(){

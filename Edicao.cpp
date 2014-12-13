@@ -1,6 +1,6 @@
   #include "Edicao.h"
-    void Edicao::submeterArtigo(Artigo& artigo){
-        submetidos.insert(&artigo);
+    void Edicao::submeterArtigo(Artigo* artigo){
+        submetidos.insert(artigo);
     }
 
     Artigo* Edicao::buscaArtigo(int codigo){

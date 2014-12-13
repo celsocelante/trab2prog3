@@ -11,6 +11,7 @@ private:
 
     Tema() {}
 public:
+    //virtual ~Tema() { }
     Tema(string t, int cdg){
         titulo = t;
         codigo = cdg;
@@ -18,7 +19,7 @@ public:
 
     string getTitulo() const;
 
-    void vinculaRevisor(Revisor& revisor);
+    void vinculaRevisor(Revisor* revisor);
 
     int getQuantidadeRevisores();
 
