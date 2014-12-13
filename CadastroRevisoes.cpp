@@ -86,7 +86,7 @@ CadastroRevisoes::CadastroRevisoes(const char* entrada, Revista* revista){
     }
   }
 
-  // Trata inconsistencia #10: revisor não habilitado a revisar artigo sob tema da edição
+  // Trata inconsistencia #11: revisor não habilitado a revisar artigo sob tema da edição
   ostringstream texto_inconsistencia_stream;
   string texto_inconsistencia;
 

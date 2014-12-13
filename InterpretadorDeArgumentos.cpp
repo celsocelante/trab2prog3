@@ -10,7 +10,7 @@ InterpretadorDeArgumentos::InterpretadorDeArgumentos(char* args[], int argc){
     }
 
     // Verifica cada elemento do vetor à procura de flags + argumentos
-    for(int i = 1; i <= argc; i++){
+    for(int i = 1; i < argc; i++){
       if(strcmp("-e",args[i]) == 0)
         entradas.push_back(args[i+1]);
       if(strcmp("-t",args[i]) == 0)

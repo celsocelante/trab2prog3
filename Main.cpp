@@ -13,14 +13,12 @@
 #include "InterpretadorDeArgumentos.h"
 
 int main(int argc, char** argv){
-	cout << 1 << endl;
+
 
 	Revista revista = Revista("Engesoft");
-		cout << 1 << endl;
+
 
 	InterpretadorDeArgumentos argumentos = InterpretadorDeArgumentos(argv,argc);
-
-	cout << 1 << endl;
 
 	vector<char*> entradas = argumentos.retornaEntradas();
 
