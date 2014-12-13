@@ -25,9 +25,6 @@ public:
 
 	int getQuantidadeArtigos();
 
-	bool operator< (const Revisor* r) const{
-		return codigo < r->getCodigo();
-	}
 };
 
 #endif /* REVISOR_H */

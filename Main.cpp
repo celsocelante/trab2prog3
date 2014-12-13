@@ -34,7 +34,7 @@
 		const char* arq_pessoas = (s.c_str());
 
 		CadastroPessoas cp(arq_pessoas,&re);
-//		cout << re.getColaboradores().size() << endl;
+		cout << re.getColaboradores().size() << endl;
 
 
 		return 0;
