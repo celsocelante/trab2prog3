@@ -1,16 +1,20 @@
 #include "InterpretadorDeArgumentos.h"
+<<<<<<< HEAD
 InterpretadorDeArgumentos::InterpretadorDeArgumentos(char* args[], int argc){
 	// Inicializa com zeros
 	vector<char*> entradas;
+=======
+InterpretadorDeArgumentos::InterpretadorDeArgumentos(const char* args[], int argc){
+>>>>>>> 2eeb0a0e8190cd789a91b91eeb766dea14d44395
 
-    if(argc != 10){
+    if(argc != 11){
       // Imprime mensagem de erro se a quantidade ideal de parâmetros não estiver sendo respeitada
       //cout << "Erro de I/O" << endl;
       exit(1);
     }
 
     // Verifica cada elemento do vetor à procura de flags + argumentos
-    for(int i = 0; i < argc; i++){
+    for(int i = 1; i <= argc; i++){
       if(strcmp("-e",args[i]) == 0)
         entradas.push_back(args[i+1]);
       if(strcmp("-t",args[i]) == 0)
@@ -30,6 +34,8 @@ InterpretadorDeArgumentos::InterpretadorDeArgumentos(char* args[], int argc){
 }
 
 // Método para retornar o que foi processado pelo classe
-vector<char*> InterpretadorDeArgumentos::retornaEntradas(){
+
+vector<const char*> InterpretadorDeArgumentos::retornaEntradas(){
+
 	return entradas;
 }
