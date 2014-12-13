@@ -23,7 +23,7 @@ public:
 
 	void vinculaAutor(Autor* autor);
 
-	void setContato(Autor& autor);
+	void setContato(Autor* autor);
 
 	void adicionaAvaliacao(Avaliacao& avaliacao);
 
@@ -33,7 +33,7 @@ public:
 
 	string getContato();
 
-	bool contemAutor(Autor& autor);
+	bool contemAutor(Autor* autor);
 
 	bool quantidadeRevisoes();
 
