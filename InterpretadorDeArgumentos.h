@@ -12,14 +12,14 @@
 using namespace std;
 
 class InterpretadorDeArgumentos {
-	vector<const char*> entradas;
+	vector<char*> entradas;
     
 	private:
 		InterpretadorDeArgumentos(){}
 
 	public:
-		InterpretadorDeArgumentos(const char* args[], int argc);
-		vector<const char*> retornaEntradas();
+		InterpretadorDeArgumentos(char** args, int argc);
+		vector<char*> retornaEntradas();
 
 };
 

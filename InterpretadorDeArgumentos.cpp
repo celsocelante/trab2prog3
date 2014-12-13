@@ -1,11 +1,6 @@
 #include "InterpretadorDeArgumentos.h"
-<<<<<<< HEAD
-InterpretadorDeArgumentos::InterpretadorDeArgumentos(char* args[], int argc){
-	// Inicializa com zeros
-	vector<char*> entradas;
-=======
-InterpretadorDeArgumentos::InterpretadorDeArgumentos(const char* args[], int argc){
->>>>>>> 2eeb0a0e8190cd789a91b91eeb766dea14d44395
+
+InterpretadorDeArgumentos::InterpretadorDeArgumentos(char** args, int argc){
 
     if(argc != 11){
       // Imprime mensagem de erro se a quantidade ideal de parâmetros não estiver sendo respeitada
@@ -35,7 +30,7 @@ InterpretadorDeArgumentos::InterpretadorDeArgumentos(const char* args[], int arg
 
 // Método para retornar o que foi processado pelo classe
 
-vector<const char*> InterpretadorDeArgumentos::retornaEntradas(){
+vector<char*> InterpretadorDeArgumentos::retornaEntradas(){
 
 	return entradas;
 }
