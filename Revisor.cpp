@@ -12,10 +12,10 @@
 			return !revisoes.empty();
 		}
 
-		set<Artigo*>& Revisor::getRevisoes(){
-			return revisoes;
+		set<Artigo*>* Revisor::getRevisoes(){
+			return &revisoes;
 		}
 
-		int Revisor::getQuantidadeArtigos(){
+		int Revisor::getQuantidadeArtigos() const{
 			return revisoes.size();
 		}

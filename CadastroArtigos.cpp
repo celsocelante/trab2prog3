@@ -47,8 +47,9 @@ CadastroArtigos::CadastroArtigos(const char* entrada, Revista* revista){
      int autor_int = atoi(cell.c_str());
      Colaborador* c = revista->buscaColaborador(autor_int);
 
-     if(c == NULL || dynamic_cast<Autor*>(c) != 0){ // Checa se é instancia de autor
+     if(c == NULL || !(dynamic_cast<Autor*>(c) != 0)){ // Checa se é instancia de autor
       // Trata a inconsistencia #6: autor não corresponde a um autor no cadastro de pessoas
+      
       texto_inconsistencia_stream << "O código " << codigo_int << " associado ao artigo " << "\"" << titulo << "\"" << " não corresponde a um autor cadastrado.";
       // Converte o texto para string
       texto_inconsistencia = texto_inconsistencia_stream.str();
@@ -57,6 +58,7 @@ CadastroArtigos::CadastroArtigos(const char* entrada, Revista* revista){
       Inconsistencia* i = new Inconsistencia(texto_inconsistencia,6);
       revista->adicionaInconsistencia(i);
      } else {
+
         Autor* autor = dynamic_cast<Autor*>(c); // Typecast de Colaborador para Autor
         artigo->vinculaAutor(autor);
      }
@@ -72,7 +74,7 @@ CadastroArtigos::CadastroArtigos(const char* entrada, Revista* revista){
     contato_int = atoi(contato.c_str());
     Colaborador* c = revista->buscaColaborador(contato_int);
 
-   if(c == NULL || dynamic_cast<Autor*>(c) != 0){
+   if(c == NULL || !(dynamic_cast<Autor*>(c) != 0)){
       // Trata a inconsistência #6: autor não corresponde a um autor no cadastro de pessoas
       texto_inconsistencia_stream << "O código " << codigo_int << " associado ao artigo " << "\"" << titulo << "\"" << " não corresponde a um autor cadastrado.";
       // Converte o texto para string

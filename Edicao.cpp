@@ -18,22 +18,22 @@
         return *tema;
     }
 
-    int Edicao::getNumero(){
+    int Edicao::getNumero() const{
         return numero;
     }
 
-    int Edicao::getVolume(){
+    int Edicao::getVolume() const{
         return volume;
     }
 
-    string Edicao::getData(){
+    string Edicao::getData() const{
         return mesAno;
     }
 
-    Colaborador& Edicao::getEditorChefe() const{
-        return *editorChefe;
+    Colaborador* Edicao::getEditorChefe(){
+        return editorChefe;
     }
 
-    set<Artigo*> Edicao::getArtigos() const{
-        return submetidos;
+    set<Artigo*>* Edicao::getArtigos(){
+        return &submetidos;
     }

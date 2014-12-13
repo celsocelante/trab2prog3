@@ -29,9 +29,9 @@ public:
 
 	int getCodigo() const;
 
-	string getTitulo();
+	string getTitulo() const;
 
-	string getContato();
+	string getContato() const;
 
 	bool contemAutor(Autor* autor);
 
@@ -39,7 +39,7 @@ public:
 
 	set<Avaliacao*> getRevisao();
 
-	int getQuantidadeRevisoes();
+	int getQuantidadeRevisoes() const;
 
 	double getMedia() const;
 

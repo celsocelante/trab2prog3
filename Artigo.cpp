@@ -24,11 +24,11 @@
 			return codigo;
 		}
 
-		string Artigo::getTitulo(){
+		string Artigo::getTitulo() const{
 			return titulo;
 		}
 
-		string Artigo::getContato(){
+		string Artigo::getContato() const{
 			if (contato == NULL)
 				return "";
 
@@ -39,7 +39,7 @@
 			return revisoes;
 		}
 
-		int Artigo::getQuantidadeRevisoes(){
+		int Artigo::getQuantidadeRevisoes() const{
 			return revisoes.size();
 		}
 

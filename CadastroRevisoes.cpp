@@ -41,7 +41,8 @@ CadastroRevisoes::CadastroRevisoes(const char* entrada, Revista* revista){
     string texto_inconsistencia;
 
     Colaborador* c = revista->buscaColaborador(revisor_int);
-    if(c == NULL || dynamic_cast<Revisor*>(c) != 0){
+    
+    if(c == NULL || !(dynamic_cast<Revisor*>(c) != 0)){
       // Trata inconsistencia #8: Revisor informado para revisao nao esta cadastrado
       texto_inconsistencia_stream << "O código " << revisor_int << " encontrado no cadastro de revisões não corresponde a um revisor cadastrado.";
       texto_inconsistencia = texto_inconsistencia_stream.str();
@@ -55,9 +56,8 @@ CadastroRevisoes::CadastroRevisoes(const char* entrada, Revista* revista){
       Avaliacao* avaliacao = new Avaliacao(r);
       avaliacao->atribuirNota(originalidade_d,conteudo_d,apresentacao_d);
 
+
       Artigo* artigo = revista->getEdicao()->buscaArtigo(codigo_int);
-      
-      
       if(artigo == NULL){
         texto_inconsistencia_stream.str("");
         // Trata insconsistencia #9: código do artigo não está cadastrado em artigos submetidos à edição
@@ -70,7 +70,6 @@ CadastroRevisoes::CadastroRevisoes(const char* entrada, Revista* revista){
       else{
         artigo->adicionaAvaliacao(avaliacao);
         r->vinculaRevisao(artigo);
-
         texto_inconsistencia_stream.str("");
         // Trata inconsistencia #10: revisor não habilitado a revisar artigo sob tema da edição
         if(&(revista->getEdicao()->getTema()) != NULL)
@@ -90,10 +89,13 @@ CadastroRevisoes::CadastroRevisoes(const char* entrada, Revista* revista){
   // Trata inconsistencia #10: revisor não habilitado a revisar artigo sob tema da edição
   ostringstream texto_inconsistencia_stream;
   string texto_inconsistencia;
+
+
   set<Artigo*>::iterator it;
-  for(it = revista->getEdicao()->getArtigos().begin(); it != revista->getEdicao()->getArtigos().end(); it++){
+  
+  for(it = revista->getEdicao()->getArtigos()->begin(); it != revista->getEdicao()->getArtigos()->end(); ++it){
     Artigo* a = *it;
-      if (!a->getQuantidadeRevisoes()){
+      if (!a->quantidadeRevisoes()){
         texto_inconsistencia_stream << "O artigo " << "\"" << a->getTitulo() << "\"" << " possui " << a->getQuantidadeRevisoes() << " revisões. Cada artigo deve conter exatamente 3 revisões.";
         texto_inconsistencia = texto_inconsistencia_stream.str();
         Inconsistencia* i = new Inconsistencia(texto_inconsistencia,11);

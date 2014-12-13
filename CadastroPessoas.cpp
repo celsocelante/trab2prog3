@@ -52,7 +52,7 @@ CadastroPessoas::CadastroPessoas(const char* entrada, Revista* revista){
 
       		// Constrói inconsistência e adiciona ao conjunto de inconsistencias em revista
       		Inconsistencia* i = new Inconsistencia(texto_inconsistencia,5);
-            revista->adicionaInconsistencia(i);
+          revista->adicionaInconsistencia(i);
     	}
   	}
 

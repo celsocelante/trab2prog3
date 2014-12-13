@@ -21,9 +21,9 @@ public:
 
 	bool participuDaEdicao();
 
-	set<Artigo*>& getRevisoes();
+	set<Artigo*>* getRevisoes();
 
-	int getQuantidadeArtigos();
+	int getQuantidadeArtigos() const;
 
 };
 

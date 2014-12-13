@@ -33,15 +33,15 @@ public:
 
   Tema& getTema() const;
 
-  int getNumero();
+  int getNumero() const;
 
-  int getVolume();
+  int getVolume() const;
 
-  string getData();
+  string getData() const;
 
-  Colaborador& getEditorChefe() const;
+  Colaborador* getEditorChefe();
 
-  set<Artigo*> getArtigos() const;
+  set<Artigo*>* getArtigos();
 
 };
 
