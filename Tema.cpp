@@ -11,6 +11,6 @@
             return revisores.size();
         }
 
-        bool Tema::contemRevisor(Revisor& revisor){
-            return revisores.find(&revisor) != revisores.end();
+        bool Tema::contemRevisor(Revisor* revisor){
+            return revisores.find(revisor) != revisores.end();
         }

@@ -18,7 +18,7 @@ private:
 	vector<char*> entradas;
 
 public:
-	InterpretadorDeArgumentos(const char* args[], int argc);
+	InterpretadorDeArgumentos(char* args[], int argc);
 	vector<char*> retornaEntradas();
 };
 

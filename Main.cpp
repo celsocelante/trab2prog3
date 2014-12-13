@@ -6,6 +6,9 @@
 	#include "Revista.h"
 	#include <iostream>
 	#include "CadastroPessoas.h"
+	#include "CadastroTemas.h"
+	#include "CadastroEdicao.h"
+	#include "CadastroArtigos.h"
 
 	int main(void){
 
@@ -37,5 +40,33 @@
 		cout << re.getColaboradores().size() << endl;
 
 
+		string tem = "temas.csv";
+		const char* arq_temas = tem.c_str();
+		CadastroTemas ct(arq_temas,&re);
+
+
+		string ed= "edicao.txt";
+		const char* arq_edicao = ed.c_str();
+		CadastroEdicao edc(arq_edicao,&re);	
+		cout << re.getEdicao()->getTema().getTitulo() << endl;
+
+
+		string art = "artigos.csv";
+		const char* arq_artigos = art.c_str();
+		CadastroArtigos artg(arq_artigos,&re);
+
+		ostringstream oss;
+		oss << "One hundred and one: " << 101;
+		string s1 = oss.str();
+		cout << s1 << endl;
+		oss.str("");
+		oss << "One hundred and one: " << 106;
+
+		string s2 = oss.str();
+		cout << s2 << endl;
+		s2 = "sadsadas";
+		cout << s2 << endl;
+
 		return 0;
+
 		} 

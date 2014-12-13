@@ -18,13 +18,13 @@ private:
   Edicao() {}
 public:
   //Construtor
-  Edicao(int v, int num, string data, Tema& t, Colaborador& c){
+  Edicao(int v, int num, string data, Tema* t, Colaborador* c){
 
     volume = v;
     numero = num;
     //tratar data
-    tema = &t;
-    editorChefe = &c;
+    tema = t;
+    editorChefe = c;
   }
 
   void submeterArtigo(Artigo* artigo);

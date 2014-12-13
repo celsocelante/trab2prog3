@@ -31,9 +31,9 @@ public:
 
   Tema* buscaTema(string titulo);
 
-  void setEdicao(Edicao& e);
+  void setEdicao(Edicao* e);
 
-  Edicao& getEdicao() const;
+  Edicao* getEdicao();
 
   set<Colaborador*> getColaboradores() const;
 

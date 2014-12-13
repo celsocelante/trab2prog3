@@ -45,12 +45,12 @@
 
     }
 
-    void Revista::setEdicao(Edicao& e){
-      edicao = &e;
+    void Revista::setEdicao(Edicao* e){
+      edicao = e;
     }
 
-    Edicao& Revista::getEdicao() const{
-      return *edicao;
+    Edicao* Revista::getEdicao(){
+      return edicao;
     }
 
     set<Colaborador*> Revista::getColaboradores() const{

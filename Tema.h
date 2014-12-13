@@ -23,7 +23,7 @@ public:
 
     int getQuantidadeRevisores();
 
-    bool contemRevisor(Revisor& revisor);
+    bool contemRevisor(Revisor* revisor);
 };
 
 #endif /* TEMA_H */

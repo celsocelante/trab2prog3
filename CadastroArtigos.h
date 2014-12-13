@@ -21,7 +21,7 @@ class CadastroArtigos {
     CadastroArtigos(){}
 
     public:
-	CadastroArtigos(char* entrada, Revista& revista);
+	CadastroArtigos(const char* entrada, Revista* revista);
         
 };
 

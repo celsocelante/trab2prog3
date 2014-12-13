@@ -1,6 +1,6 @@
 #include "CadastroArtigos.h"
 
-CadastroArtigos::CadastroArtigos(char* entrada, Revista* revista){
+CadastroArtigos::CadastroArtigos(const char* entrada, Revista* revista){
 
   string cell, linha;
   string codigo;
@@ -34,28 +34,18 @@ CadastroArtigos::CadastroArtigos(char* entrada, Revista* revista){
 
     // Constrói o objeto Artigo
     Artigo* artigo = new Artigo(codigo_int,titulo);
-
     // Submete artigo à edição da revista
-    revista->getEdicao().submeterArtigo(artigo);
-
-    // Se o campo contato estiver vazio, quer dizer quer o artigo só possui um autor e ele é o contato
-    if(contato.empty())
-      contato = autores;
-
-    contato_int = atoi(contato.c_str());
-
-    // Busca no conjunto de colaboradores
-    Colaborador* c = revista->buscaColaborador(contato_int);
+    revista->getEdicao()->submeterArtigo(artigo);
 
     // Cria o stream para o texto da inconsistência e o transforma em string
     ostringstream texto_inconsistencia_stream;
     string texto_inconsistencia;
 
+    // Se artigo possuir mais de um autor, vincula cada um desses autores ao artigo
     istringstream ss(autores);
     while(getline(ss,cell,',')){
-      // Para cada autor lido do artigo
      int autor_int = atoi(cell.c_str());
-     c = revista->buscaColaborador(autor_int);
+     Colaborador* c = revista->buscaColaborador(autor_int);
 
      if(c == NULL || dynamic_cast<Autor*>(c) != 0){ // Checa se é instancia de autor
       // Trata a inconsistencia #6: autor não corresponde a um autor no cadastro de pessoas
@@ -64,7 +54,7 @@ CadastroArtigos::CadastroArtigos(char* entrada, Revista* revista){
       texto_inconsistencia = texto_inconsistencia_stream.str();
 
       // Constrói inconsistência e adiciona ao conjunto
-      Inconsistencia i = new Inconsistencia(texto_inconsistencia,6);
+      Inconsistencia* i = new Inconsistencia(texto_inconsistencia,6);
       revista->adicionaInconsistencia(i);
      } else {
         Autor* autor = dynamic_cast<Autor*>(c); // Typecast de Colaborador para Autor
@@ -72,8 +62,15 @@ CadastroArtigos::CadastroArtigos(char* entrada, Revista* revista){
      }
 
      cout << autor_int << endl;
-  // Adiciona os autores à lista de autores
    }
+
+
+    // Se o campo contato estiver vazio, quer dizer quer o artigo só possui um autor e ele é o contato
+    if(contato.empty())
+      contato = autores;
+
+    contato_int = atoi(contato.c_str());
+    Colaborador* c = revista->buscaColaborador(contato_int);
 
    if(c == NULL || dynamic_cast<Autor*>(c) != 0){
       // Trata a inconsistência #6: autor não corresponde a um autor no cadastro de pessoas
@@ -82,7 +79,7 @@ CadastroArtigos::CadastroArtigos(char* entrada, Revista* revista){
       texto_inconsistencia = texto_inconsistencia_stream.str();
 
       // Constrói inconsistência e adiciona ao conjunto
-      Inconsistencia i = new Inconsistencia(texto_inconsistencia,6);
+      Inconsistencia* i = new Inconsistencia(texto_inconsistencia,6);
       revista->adicionaInconsistencia(i);
     } else {
       Autor* contato_ref = dynamic_cast<Autor*>(c); // Typecast de Colaborador para Autor
@@ -91,15 +88,12 @@ CadastroArtigos::CadastroArtigos(char* entrada, Revista* revista){
         artigo->setContato(contato_ref);
       } else {
         // Trata a inconsistência #7: código de contato não está entre os autores do artigo
-        texto_inconsistencia_stream << "O contato " << contato_ref->getNome() << " informado como autor de contato não corresponde a um dos autores do artigo.";
-
-        // CONSERTAR TEXTO DE INCONSISTÊNCIA!!111
-
+        texto_inconsistencia_stream << "O código " << contato_int << " informado como autor de contato não corresponde a um dos autores do artigo" << "\'" << titulo << "\'.";
         // Converte o texto para string
         texto_inconsistencia = texto_inconsistencia_stream.str();
 
         // Constrói inconsistência e adiciona ao conjunto
-        Inconsistencia i = new Inconsistencia(texto_inconsistencia,7);
+        Inconsistencia* i = new Inconsistencia(texto_inconsistencia,7);
         revista->adicionaInconsistencia(i);
       }
     }
