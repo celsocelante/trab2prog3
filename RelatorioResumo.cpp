@@ -20,7 +20,8 @@ void RelatorioResumo::escreveRelatorio(){
 		resumo << edicao->getEditorChefe()->getNome();
 	resumo << endl << endl;
 	resumo << "Consistência dos dados:" << endl;
-	cout << revista->getInconsistencias()->size() << endl;
+	//cout << revista->getInconsistencias()->size() << endl;
+	
 	if(!revista->getInconsistencias()->empty()){
 		// Imprime no arquivo de saída todas as inconsistências armazenadas no objeto revista
 		set<Inconsistencia*>::iterator it;
