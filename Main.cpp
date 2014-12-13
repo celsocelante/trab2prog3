@@ -13,13 +13,19 @@
 #include "InterpretadorDeArgumentos.h"
 
 int main(int argc, char** argv){
+<<<<<<< HEAD
 
+=======
+>>>>>>> c0235f19f9de8e0f422369c332dea855ba75dfe5
 
 	Revista revista = Revista("Engesoft");
 
 
+<<<<<<< HEAD
 	InterpretadorDeArgumentos argumentos = InterpretadorDeArgumentos(argv,argc);
 
+=======
+>>>>>>> c0235f19f9de8e0f422369c332dea855ba75dfe5
 	vector<char*> entradas = argumentos.retornaEntradas();
 
 	CadastroPessoas pessoas = CadastroPessoas(entradas[2], &revista);
