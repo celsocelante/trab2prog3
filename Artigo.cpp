@@ -3,8 +3,8 @@
 			autores.insert(autor);
 		}
 
-		bool Artigo::contemAutor(Autor& autor){
-			return autores.find(&autor) != autores.end();
+		bool Artigo::contemAutor(Autor* autor){
+			return autores.find(autor) != autores.end();
 		}
 
 		void Artigo::adicionaAvaliacao(Avaliacao& avaliacao){
@@ -16,8 +16,8 @@
 		}
 
 		//Getters e setters
-		void Artigo::setContato(Autor& autor){
-			contato = &autor;
+		void Artigo::setContato(Autor* autor){
+			contato = autor;
 		}
 
 		int Artigo::getCodigo() const{

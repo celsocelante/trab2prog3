@@ -1,8 +1,7 @@
-#ifndef CADASTROARTIGOS_H
-#define CADASTROARTIGOS_H
+#ifndef CADASTROPESSOAS_H
+#define CADASTROPESSOAS_H
 
 #include "Revista.h"
-#include "Colaborador.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -13,15 +12,16 @@
 
 using namespace std;
 
-class CadastroArtigos {
+class CadastroPessoas {
     
     //private:
 	
-    
-    CadastroArtigos(){}
+	Revista* revista;
+	
+    CadastroPessoas(){}
 
     public:
-	CadastroArtigos(char* entrada, Revista& revista);
+	CadastroPessoas(char* entrada, Revista& revista);
         
 };
 
