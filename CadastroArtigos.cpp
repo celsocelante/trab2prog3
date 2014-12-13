@@ -63,7 +63,6 @@ CadastroArtigos::CadastroArtigos(const char* entrada, Revista* revista){
         artigo->vinculaAutor(autor);
      }
 
-     cout << autor_int << endl;
    }
 
 

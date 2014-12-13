@@ -31,7 +31,7 @@ public:
 
   Artigo* buscaArtigo(int codigo);
 
-  Tema& getTema() const;
+  Tema* getTema();
 
   int getNumero() const;
 

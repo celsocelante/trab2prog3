@@ -35,9 +35,9 @@ public:
 
   Edicao* getEdicao();
 
-  set<Colaborador*> getColaboradores() const;
+  set<Colaborador*>* getColaboradores();
 
-  set<Inconsistencia*> getInconsistencias() const;
+  set<Inconsistencia*>* getInconsistencias();
 
   int getRevisoresEnvolvidos();
 

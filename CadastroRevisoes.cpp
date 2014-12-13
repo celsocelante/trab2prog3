@@ -72,10 +72,10 @@ CadastroRevisoes::CadastroRevisoes(const char* entrada, Revista* revista){
         r->vinculaRevisao(artigo);
         texto_inconsistencia_stream.str("");
         // Trata inconsistencia #10: revisor não habilitado a revisar artigo sob tema da edição
-        if(&(revista->getEdicao()->getTema()) != NULL)
-          if(!(revista->getEdicao()->getTema().contemRevisor(r))){
+        if(revista->getEdicao()->getTema() != NULL)
+          if(!(revista->getEdicao()->getTema()->contemRevisor(r))){
               
-              texto_inconsistencia_stream << "O revisor " << r->getNome() << " avaliou o artigo " + artigo->getTitulo() << ", porém ele não consta como apto a avaliar o tema" << "\'" << revista->getEdicao()->getTema().getTitulo() << "\'" << " desta edição.";
+              texto_inconsistencia_stream << "O revisor " << r->getNome() << " avaliou o artigo " + artigo->getTitulo() << ", porém ele não consta como apto a avaliar o tema" << "\'" << revista->getEdicao()->getTema()->getTitulo() << "\'" << " desta edição.";
               texto_inconsistencia = texto_inconsistencia_stream.str();
               Inconsistencia* i = new Inconsistencia(texto_inconsistencia,10);
 

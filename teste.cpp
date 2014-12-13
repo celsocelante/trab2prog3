@@ -1,8 +1,9 @@
 	#include <iostream>
+	#include <fstream>
 	#include "Colaborador.h"
 	#include "Autor.h"
 	#include "Revisor.h"
-
+	using namespace std;
 
 int main(){
 
@@ -12,9 +13,12 @@ int main(){
 
 	Colaborador* ptr = &a;
 	Colaborador* ptr2 = &r;
-	if(!(dynamic_cast<Revisor*>(ptr) != 0)){
 
-		cout << 1 << endl;
-	}
+	
+	ofstream saida;
+	saida.open("saida.txt");
+	saida << a.getNome() << endl;
+
+	saida.close();
 	return 0;
 }

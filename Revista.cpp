@@ -53,18 +53,38 @@
       return edicao;
     }
 
-    set<Colaborador*> Revista::getColaboradores() const{
-        return colaboradores;
+    set<Colaborador*>* Revista::getColaboradores(){
+        return &colaboradores;
     }
 
-    set<Inconsistencia*> Revista::getInconsistencias() const{
-      return inconsistencias;
+    set<Inconsistencia*>* Revista::getInconsistencias(){
+      return &inconsistencias;
     }
 
     int Revista::getRevisoresEnvolvidos(){
-
+      set<Colaborador*>::iterator it;
+      int qnt=0;
+      for(it = colaboradores.begin(); it != colaboradores.end(); it++){
+        Colaborador* c = *it;
+        if(dynamic_cast<Revisor*>(c) != 0){
+          Revisor* r = dynamic_cast<Revisor*>(c);
+          if(r->participouDaEdicao())
+            qnt++;
+        }
+      }
+      return qnt;
     }
 
     double Revista::getArtigosRevisados(){
-
+      set<Colaborador*>::iterator it;
+      int qnt=0;
+      for(it = colaboradores.begin(); it != colaboradores.end(); it++){
+        Colaborador* c = *it;
+        if(dynamic_cast<Revisor*>(c) != 0){
+          Revisor* r = dynamic_cast<Revisor*>(c);
+          if(r->participouDaEdicao())
+            qnt+=r->getQuantidadeArtigos();
+        }
+      }
+      return qnt;
     }

@@ -14,8 +14,8 @@
         return NULL;
     }
 
-    Tema& Edicao::getTema() const{
-        return *tema;
+    Tema* Edicao::getTema(){
+        return tema;
     }
 
     int Edicao::getNumero() const{

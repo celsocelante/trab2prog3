@@ -19,7 +19,7 @@ public:
 
 	void vinculaRevisao(Artigo* artigo);
 
-	bool participuDaEdicao();
+	bool participouDaEdicao();
 
 	set<Artigo*>* getRevisoes();
 

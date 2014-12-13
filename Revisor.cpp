@@ -8,7 +8,7 @@
 			revisoes.insert(artigo);
 		}
 
-		bool Revisor::participuDaEdicao(){
+		bool Revisor::participouDaEdicao(){
 			return !revisoes.empty();
 		}
 
