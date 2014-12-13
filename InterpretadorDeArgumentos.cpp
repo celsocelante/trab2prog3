@@ -1,14 +1,14 @@
 #include "InterpretadorDeArgumentos.h"
 InterpretadorDeArgumentos::InterpretadorDeArgumentos(const char* args[], int argc){
 
-    if(argc != 10){
+    if(argc != 11){
       // Imprime mensagem de erro se a quantidade ideal de parâmetros não estiver sendo respeitada
       //cout << "Erro de I/O" << endl;
       exit(1);
     }
 
     // Verifica cada elemento do vetor à procura de flags + argumentos
-    for(int i = 0; i < argc; i++){
+    for(int i = 1; i <= argc; i++){
       if(strcmp("-e",args[i]) == 0)
         entradas.push_back(args[i+1]);
       if(strcmp("-t",args[i]) == 0)
@@ -28,6 +28,6 @@ InterpretadorDeArgumentos::InterpretadorDeArgumentos(const char* args[], int arg
 }
 
 // Método para retornar o que foi processado pelo classe
-vector<const char*> retornaEntradas(){
+vector<const char*> InterpretadorDeArgumentos::retornaEntradas(){
 	return entradas;
 }
