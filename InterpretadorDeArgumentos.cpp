@@ -1,6 +1,6 @@
 #include "InterpretadorDeArgumentos.h"
 
-InterpretadorDeArgumentos::InterpretadorDeArgumentos(const char* args[], int argc){
+InterpretadorDeArgumentos::InterpretadorDeArgumentos(char* args[], int argc){
 
 
     if(argc != 11){
@@ -31,9 +31,6 @@ InterpretadorDeArgumentos::InterpretadorDeArgumentos(const char* args[], int arg
 
 // Método para retornar o que foi processado pelo classe
 
-vector<const char*> InterpretadorDeArgumentos::retornaEntradas(){
-  return entradas;
-}
 
 vector<char*> InterpretadorDeArgumentos::retornaEntradas(){
 

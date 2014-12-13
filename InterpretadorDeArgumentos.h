@@ -12,6 +12,7 @@
 using namespace std;
 
 class InterpretadorDeArgumentos {
+	
 	vector<char*> entradas;
     
 	private:
