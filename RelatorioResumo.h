@@ -2,8 +2,8 @@
 #define RELATORIORESUMO_H
 
 #include <iostream>
-#include <iostream>
 #include <fstream>
+#include <iomanip>
 #include "Revista.h"
 
 class RelatorioResumo {

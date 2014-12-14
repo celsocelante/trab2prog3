@@ -10,7 +10,7 @@ private:
 	string titulo;
 	int codigo;
 	set<Autor*> autores;
-	set<Avaliacao*> revisoes;
+	set<Avaliacao*,AvaComp> revisoes;
 	Autor* contato;
 
 	Artigo(){}
@@ -37,13 +37,21 @@ public:
 
 	bool quantidadeRevisoes();
 
-	set<Avaliacao*> getRevisao();
+	set<Avaliacao*,AvaComp>* getRevisao();
 
 	int getQuantidadeRevisoes() const;
 
 	double getMedia() const;
 
-	bool operator< (const Artigo* a) const;
+	int getQuantidadeAutores();
+};
+
+
+
+struct ArtComp {
+	bool operator()(const Artigo* lhs, const Artigo* rhs) const{
+				return lhs->getMedia() >= rhs->getMedia();
+	}
 };
 
 #endif /* ARTIGO_H */

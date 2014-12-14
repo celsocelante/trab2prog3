@@ -12,6 +12,8 @@
 #include "CadastroRevisoes.h"
 #include "InterpretadorDeArgumentos.h"
 #include "RelatorioResumo.h"
+#include "RelatorioRevisoes.h"
+#include "RelatorioRevisores.h"
 
 int main(int argc, char** argv){
 
@@ -21,15 +23,21 @@ int main(int argc, char** argv){
 	vector<char*> entradas = argumentos.retornaEntradas();
 
 
-	CadastroPessoas pessoas = CadastroPessoas(entradas[2], &revista);
+		CadastroPessoas pessoas = CadastroPessoas(entradas[2], &revista);
     CadastroTemas temas = CadastroTemas(entradas[1], &revista);
     CadastroEdicao edicao = CadastroEdicao(entradas[0], &revista);
     CadastroArtigos artigos = CadastroArtigos(entradas[3], &revista);
     CadastroRevisoes revisoes = CadastroRevisoes(entradas[4], &revista);
 
-    RelatorioResumo resumo = RelatorioResumo(&revista);
-    resumo.escreveRelatorio();
+    RelatorioResumo relat_resumo = RelatorioResumo(&revista);
+    relat_resumo.escreveRelatorio();
 
+		if(revista.getInconsistencias()->empty()){
+				RelatorioRevisoes relat_revisoes = RelatorioRevisoes(&revista);
+				relat_revisoes.escreveRelatorio();
+
+				RelatorioRevisores relat_revisores = RelatorioRevisores(&revista);
+				relat_revisores.escreveRelatorio();
+		}
 	return 0;
-
-} 
+}

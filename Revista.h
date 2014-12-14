@@ -4,13 +4,17 @@
 #include "Edicao.h"
 #include "Inconsistencia.h"
 
+
+
 class Revista {
 private:
+
+
     string nome;
     Edicao* edicao;
     set<Tema*> temas;
-    set<Colaborador*> colaboradores;
-    set<Inconsistencia*> inconsistencias;
+    set<Colaborador*,ClbComp> colaboradores;
+    set<Inconsistencia*,IncComp> inconsistencias;
 
     Revista() {}
 public:
@@ -35,9 +39,9 @@ public:
 
   Edicao* getEdicao();
 
-  set<Colaborador*>* getColaboradores();
+  set<Colaborador*,ClbComp>* getColaboradores();
 
-  set<Inconsistencia*>* getInconsistencias();
+  set<Inconsistencia*,IncComp>* getInconsistencias();
 
   int getRevisoresEnvolvidos();
 

@@ -13,7 +13,7 @@ CadastroTemas::CadastroTemas(const char* entrada, Revista* revista){
 
  	getline(inf, linha);
 
-	while (getline(inf, linha)) {  
+	while (getline(inf, linha)) {
 
     stringstream lineStream(linha);
 
@@ -39,9 +39,9 @@ CadastroTemas::CadastroTemas(const char* entrada, Revista* revista){
      int autor_int = atoi(cell.c_str());
      Colaborador* c = revista->buscaColaborador(autor_int);
 
-     if(c == NULL || dynamic_cast<Autor*>(c) != 0){ 
+     if(c == NULL || dynamic_cast<Autor*>(c) != 0){
       //Trata inconsistencia #3: nao ha revisor correspondente a este codigo no cadastro de pessoas
-      texto_inconsistencia_stream << "O código " << codigo_int << " associado ao tema " << "\"" << nome << "\"" << " não corresponde a um revisor cadastrado.";
+      texto_inconsistencia_stream << "O código " << autor_int << " associado ao tema " << "\"" << nome << "\"" << " não corresponde a um revisor cadastrado.";
       // Converte o texto para string
       texto_inconsistencia = texto_inconsistencia_stream.str();
 
@@ -55,7 +55,7 @@ CadastroTemas::CadastroTemas(const char* entrada, Revista* revista){
     }
     if(tema->getQuantidadeRevisores() < 3){
       //Trata inconsistencia #4: tema com menos de 3 revisores
-      texto_inconsistencia_stream << "O tema " << "\'"<< nome << "\'" << " possui apenas " << tema->getQuantidadeRevisores() << ". São necessários no minimo 3.";
+      texto_inconsistencia_stream << "O tema " << "\""<< nome << "\"" << " possui apenas " << tema->getQuantidadeRevisores() << " revisores. " << "São necessários no minimo 3 revisores.";
       // Converte o texto para string
       texto_inconsistencia = texto_inconsistencia_stream.str();
       //Adiciona inconsistencia ao conjunto de inconsistencias da revista

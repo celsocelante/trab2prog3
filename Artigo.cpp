@@ -35,8 +35,8 @@
 			else return contato->getNome();
 		}
 
-		set<Avaliacao*> Artigo::getRevisao(){
-			return revisoes;
+		set<Avaliacao*,AvaComp>* Artigo::getRevisao(){
+			return &revisoes;
 		}
 
 		int Artigo::getQuantidadeRevisoes() const{
@@ -54,7 +54,6 @@
 			return media/3;
 		}
 
-
-		bool Artigo::operator< (const Artigo* a) const{
-			return getMedia() > a->getMedia();
-		}
+	int Artigo::getQuantidadeAutores(){
+		return autores.size();
+	}

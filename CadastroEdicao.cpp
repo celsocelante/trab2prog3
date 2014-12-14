@@ -18,7 +18,6 @@ CadastroEdicao::CadastroEdicao(const char* entrada, Revista* revista){
   getline(inf,volume);
   getline(inf,numero);
   getline(inf,data);
-
   volume_int = atoi(volume.c_str());
   numero_int = atoi(numero.c_str());
 

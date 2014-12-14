@@ -5,12 +5,12 @@ CadastroArtigos::CadastroArtigos(const char* entrada, Revista* revista){
   string cell, linha;
   string codigo;
   int codigo_int;
-  
+
   string titulo;
   string autores;
 
   int autor_int;
-  
+
   string contato;
   int contato_int;
 
@@ -41,6 +41,7 @@ CadastroArtigos::CadastroArtigos(const char* entrada, Revista* revista){
     ostringstream texto_inconsistencia_stream;
     string texto_inconsistencia;
 
+
     // Se artigo possuir mais de um autor, vincula cada um desses autores ao artigo
     istringstream ss(autores);
     while(getline(ss,cell,',')){
@@ -49,56 +50,60 @@ CadastroArtigos::CadastroArtigos(const char* entrada, Revista* revista){
 
      if(c == NULL || !(dynamic_cast<Autor*>(c) != 0)){ // Checa se é instancia de autor
       // Trata a inconsistencia #6: autor não corresponde a um autor no cadastro de pessoas
-      
-      texto_inconsistencia_stream << "O código " << codigo_int << " associado ao artigo " << "\"" << titulo << "\"" << " não corresponde a um autor cadastrado.";
+
+      texto_inconsistencia_stream << "O código " << autor_int << " associado ao artigo " << "\"" << titulo << "\"" << " não corresponde a um autor cadastrado." << endl;
       // Converte o texto para string
       texto_inconsistencia = texto_inconsistencia_stream.str();
 
       // Constrói inconsistência e adiciona ao conjunto
       Inconsistencia* i = new Inconsistencia(texto_inconsistencia,6);
       revista->adicionaInconsistencia(i);
-     } else {
-
+     }
+     else{
         Autor* autor = dynamic_cast<Autor*>(c); // Typecast de Colaborador para Autor
         artigo->vinculaAutor(autor);
+        artigo->setContato(autor);
      }
 
    }
 
+   if(!contato.empty()){//Há mais de um autor
 
-    // Se o campo contato estiver vazio, quer dizer quer o artigo só possui um autor e ele é o contato
-    if(contato.empty())
-      contato = autores;
+      contato_int = atoi(contato.c_str());
+      Colaborador* c = revista->buscaColaborador(contato_int);
 
-    contato_int = atoi(contato.c_str());
-    Colaborador* c = revista->buscaColaborador(contato_int);
-
-   if(c == NULL || !(dynamic_cast<Autor*>(c) != 0)){
-      // Trata a inconsistência #6: autor não corresponde a um autor no cadastro de pessoas
-      texto_inconsistencia_stream << "O código " << codigo_int << " associado ao artigo " << "\"" << titulo << "\"" << " não corresponde a um autor cadastrado.";
-      // Converte o texto para string
-      texto_inconsistencia = texto_inconsistencia_stream.str();
-
-      // Constrói inconsistência e adiciona ao conjunto
-      Inconsistencia* i = new Inconsistencia(texto_inconsistencia,6);
-      revista->adicionaInconsistencia(i);
-    } else {
-      Autor* contato_ref = dynamic_cast<Autor*>(c); // Typecast de Colaborador para Autor
-      if(artigo->contemAutor(contato_ref)){
-        // Seta o autor como contato
-        artigo->setContato(contato_ref);
-      } else {
-        // Trata a inconsistência #7: código de contato não está entre os autores do artigo
-        texto_inconsistencia_stream << "O código " << contato_int << " informado como autor de contato não corresponde a um dos autores do artigo" << "\'" << titulo << "\'.";
+      if(c == NULL || !(dynamic_cast<Autor*>(c) != 0)){
+        texto_inconsistencia_stream.str("");
+        // Trata a inconsistência #7: autor não corresponde a um autor no cadastro de pessoas
+        texto_inconsistencia_stream << "O código " << contato_int << " associado ao artigo " << "\"" << titulo << "\"" << " não corresponde a um autor cadastrado.";
         // Converte o texto para string
         texto_inconsistencia = texto_inconsistencia_stream.str();
 
         // Constrói inconsistência e adiciona ao conjunto
-        Inconsistencia* i = new Inconsistencia(texto_inconsistencia,7);
+        Inconsistencia* i = new Inconsistencia(texto_inconsistencia,6);
         revista->adicionaInconsistencia(i);
       }
-    }
+      else{
+        Autor* contato_ref = dynamic_cast<Autor*>(c); // Typecast de Colaborador para Autor
+        if(artigo->contemAutor(contato_ref)){
+          // Seta o autor como contato
+          artigo->setContato(contato_ref);
+        } else {
+          texto_inconsistencia_stream.str("");
+          // Trata a inconsistência #7: código de contato não está entre os autores do artigo
+          texto_inconsistencia_stream << "O autor " << "\"" << contato_ref->getNome() << "\"" << " informado como autor de contato não corresponde a um dos autores do artigo" << "\"" << titulo << "\".";
+          // Converte o texto para string
+          texto_inconsistencia = texto_inconsistencia_stream.str();
+
+          // Constrói inconsistência e adiciona ao conjunto
+          Inconsistencia* i = new Inconsistencia(texto_inconsistencia,7);
+          revista->adicionaInconsistencia(i);
+        }
 
 
+      }
+   }
  }
+
+
 }

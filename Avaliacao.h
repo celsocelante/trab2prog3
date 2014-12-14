@@ -21,14 +21,17 @@ public:
 	Revisor* getRevisor() const;
 
 	double getSomaNotas() const;
-	
+
 	void atribuirNota(double o, double c, double a);
 
-	
-	bool operator< (const Avaliacao* a) const{
-		return revisor->getNome() < a->getRevisor()->getNome();
+};
+
+
+struct AvaComp {
+	bool operator()(const Avaliacao* lhs, const Avaliacao* rhs) const{
+				return lhs->getRevisor()->getNome() <= rhs->getRevisor()->getNome();
 	}
 };
 
 
-#endif /* AVALIACAO_U */ 
+#endif /* AVALIACAO_U */

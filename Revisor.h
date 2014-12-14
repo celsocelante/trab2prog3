@@ -25,6 +25,7 @@ public:
 
 	int getQuantidadeArtigos() const;
 
+	double getMediaNotasAtribuidas();
 };
 
 #endif /* REVISOR_H */

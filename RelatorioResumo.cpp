@@ -3,10 +3,13 @@
 // Registra o relatório de resumo de acordo com as especificações
 void RelatorioResumo::escreveRelatorio(){
 
+
+
 	Edicao* edicao = revista->getEdicao();
 
 	ofstream resumo;
 	resumo.open("relat-resumo.txt");
+	resumo.imbue(locale(""));
 
 	//Cabeçalho do Resumo
 
@@ -18,10 +21,10 @@ void RelatorioResumo::escreveRelatorio(){
 	resumo << "Editor-chefe: ";
 	if(edicao->getEditorChefe() != NULL)
 		resumo << edicao->getEditorChefe()->getNome();
+
 	resumo << endl << endl;
 	resumo << "Consistência dos dados:" << endl;
-	//cout << revista->getInconsistencias()->size() << endl;
-	
+
 	if(!revista->getInconsistencias()->empty()){
 		// Imprime no arquivo de saída todas as inconsistências armazenadas no objeto revista
 		set<Inconsistencia*>::iterator it;
@@ -41,8 +44,7 @@ void RelatorioResumo::escreveRelatorio(){
 		resumo << "Revisores envolvidos: " << revista->getRevisoresEnvolvidos() << endl;
 
 		double media = revista->getArtigosRevisados()/revista->getRevisoresEnvolvidos();
-
-		resumo << "Média artigos/revisor: " << media;
+		resumo << "Média artigos/revisor: " << std::fixed << std::setprecision(2) << media;
 	}
 
 	resumo.close();

@@ -11,5 +11,5 @@
 			originalidade = o;
 			conteudo = c;
 			apresentacao = a;
-			somaNotas = o+c+a;
+			somaNotas = (o+c+a)/3;
 		}

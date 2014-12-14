@@ -53,11 +53,11 @@
       return edicao;
     }
 
-    set<Colaborador*>* Revista::getColaboradores(){
+    set<Colaborador*,ClbComp>* Revista::getColaboradores(){
         return &colaboradores;
     }
 
-    set<Inconsistencia*>* Revista::getInconsistencias(){
+    set<Inconsistencia*,IncComp>* Revista::getInconsistencias(){
       return &inconsistencias;
     }
 

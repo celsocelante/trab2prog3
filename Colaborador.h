@@ -30,10 +30,13 @@ public:
 
 	string getNome() const;
 
-	bool operator< (const Colaborador* c) const{
-		return codigo < c->getCodigo();
-	}
+};
 
+
+struct ClbComp {
+	bool operator()(const Colaborador* lhs, const Colaborador* rhs) const{
+				return lhs->getNome() <= rhs->getNome();
+	}
 };
 
 

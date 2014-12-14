@@ -14,7 +14,7 @@ InterpretadorDeArgumentos::InterpretadorDeArgumentos(char* args[], int argc){
 
 
       //Tem que inserir nas posições especificas. Do jeito que está ele insere em qualquer posicao, na ordem
-      // que vier na entrada do args[]. 
+      // que vier na entrada do args[].
       if(strcmp("-e",args[i]) == 0)
         entradas.push_back(args[i+1]);
       if(strcmp("-t",args[i]) == 0)
@@ -26,6 +26,8 @@ InterpretadorDeArgumentos::InterpretadorDeArgumentos(char* args[], int argc){
       if(strcmp("-r",args[i]) == 0)
         entradas.push_back(args[i+1]);
     }
+
+
     // Verifica se algum dos parametros não foi preenchido
     if(entradas[0] == 0 || entradas[1] == 0 || entradas[2] == 0 || entradas[3] == 0 || entradas[4] == 0){
       cout << "Erro de I/O" << endl;

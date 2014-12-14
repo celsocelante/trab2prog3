@@ -10,14 +10,15 @@
 #include <vector>
 #include <sstream>
 #include <iterator>
+#include <algorithm>
 
 using namespace std;
 
 class CadastroRevisoes {
-private:    
+private:
     CadastroRevisoes(){}
 public:
-	CadastroRevisoes(const char* entrada, Revista* revista);        
+	CadastroRevisoes(const char* entrada, Revista* revista);
 };
 
 #endif
