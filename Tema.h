@@ -10,6 +10,7 @@ private:
     set<Revisor*> revisores;
 
     Tema() {}
+
 public:
     //virtual ~Tema() { }
     Tema(string t, int cdg){

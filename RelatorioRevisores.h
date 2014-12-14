@@ -13,7 +13,6 @@ private:
   RelatorioRevisores() {  }
 
 public:
-
   RelatorioRevisores(Revista* r){
       revista = r;
   }

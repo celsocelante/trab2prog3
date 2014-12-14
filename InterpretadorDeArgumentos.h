@@ -1,13 +1,11 @@
 #ifndef INTERPRETADORDEARGUMENTOS_H
 #define INTERPRETADORDEARGUMENTOS_H
 
-#include <fstream>
 #include <iostream>
 #include <string>
+#include <string.h>
 #include <cstdlib>
 #include <vector>
-#include <sstream>
-#include <string.h>
 
 using namespace std;
 

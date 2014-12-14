@@ -9,7 +9,7 @@ InterpretadorDeArgumentos::InterpretadorDeArgumentos(char* args[], int argc){
 
     if(argc != 11){
       // Imprime mensagem de erro se a quantidade ideal de parâmetros não estiver sendo respeitada
-      cout << "Erro de I/O (1)" << endl;
+      cout << "Erro de I/O" << endl;
       exit(1);
     }
 
@@ -30,7 +30,7 @@ InterpretadorDeArgumentos::InterpretadorDeArgumentos(char* args[], int argc){
 
     // Verifica se algum dos parametros não foi preenchido
     if(entradas[0] == NULL || entradas[1] == NULL || entradas[2] == NULL || entradas[3] == NULL || entradas[4] == NULL){
-      cout << "Erro de I/O (2)" << endl;
+      cout << "Erro de I/O" << endl;
       exit(1);
     }
 }
