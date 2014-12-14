@@ -24,5 +24,5 @@ clean:
 	rm $(PRINCIPAL)
 
 run:
-	./$(PRINCIPAL) -e entradas/edicao.txt -p entradas/pessoas.csv -a entradas/artigos.csv -r entradas/revisoes.csv -t entradas/temas.csv
+	./$(PRINCIPAL) -p entradas/pessoas.csv -a entradas/artigos.csv -r entradas/revisoes.csv -t entradas/temas.csv -e entradas/edicao.txt
 

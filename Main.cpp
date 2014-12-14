@@ -23,7 +23,7 @@ int main(int argc, char** argv){
 	vector<char*> entradas = argumentos.retornaEntradas();
 
 
-		CadastroPessoas pessoas = CadastroPessoas(entradas[2], &revista);
+	CadastroPessoas pessoas = CadastroPessoas(entradas[2], &revista);
     CadastroTemas temas = CadastroTemas(entradas[1], &revista);
     CadastroEdicao edicao = CadastroEdicao(entradas[0], &revista);
     CadastroArtigos artigos = CadastroArtigos(entradas[3], &revista);

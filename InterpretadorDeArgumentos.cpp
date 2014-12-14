@@ -9,32 +9,28 @@ InterpretadorDeArgumentos::InterpretadorDeArgumentos(char* args[], int argc){
 
     if(argc != 11){
       // Imprime mensagem de erro se a quantidade ideal de parâmetros não estiver sendo respeitada
-      cout << "Erro de I/O" << endl;
+      cout << "Erro de I/O (1)" << endl;
       exit(1);
     }
 
     // Verifica cada elemento do vetor à procura de flags + argumentos
     for(int i = 1; i < argc; i++){
-
-
-      //Tem que inserir nas posições especificas. Do jeito que está ele insere em qualquer posicao, na ordem
-      // que vier na entrada do args[].
       if(strcmp("-e",args[i]) == 0)
-        entradas[i] = args[i+1];
+        entradas[0] = args[i+1];
       if(strcmp("-t",args[i]) == 0)
-        entradas[i] = args[i+1];
+        entradas[1] = args[i+1];
       if(strcmp("-p",args[i]) == 0)
-        entradas[i] = args[i+1];
+        entradas[2] = args[i+1];
       if(strcmp("-a",args[i]) == 0)
-        entradas[i] = args[i+1];
+        entradas[3] = args[i+1];
       if(strcmp("-r",args[i]) == 0)
-        entradas[i] = args[i+1];
+        entradas[4] = args[i+1];
     }
 
 
     // Verifica se algum dos parametros não foi preenchido
     if(entradas[0] == NULL || entradas[1] == NULL || entradas[2] == NULL || entradas[3] == NULL || entradas[4] == NULL){
-      cout << "Erro de I/O" << endl;
+      cout << "Erro de I/O (2)" << endl;
       exit(1);
     }
 }
