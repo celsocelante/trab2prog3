@@ -4,12 +4,8 @@
 #include "Edicao.h"
 #include "Inconsistencia.h"
 
-
-
 class Revista {
 private:
-
-
     string nome;
     Edicao* edicao;
     set<Tema*> temas;
@@ -17,6 +13,7 @@ private:
     set<Inconsistencia*,IncComp> inconsistencias;
 
     Revista() {}
+
 public:
   //Construtor
   Revista(string n){

@@ -3,8 +3,6 @@
 // Registra o relatório de resumo de acordo com as especificações
 void RelatorioResumo::escreveRelatorio(){
 
-
-
 	Edicao* edicao = revista->getEdicao();
 
 	ofstream resumo;
@@ -12,7 +10,6 @@ void RelatorioResumo::escreveRelatorio(){
 	resumo.imbue(locale(cout.getloc(),new punct_facet<char,','>));
 
 	//Cabeçalho do Resumo
-
 	resumo << "EngeSoft, num. " << edicao->getNumero() << ", volume " << edicao->getVolume() << " - " << edicao->getData() << endl;
 	//Tratar data
 	if(edicao->getTema() != NULL)

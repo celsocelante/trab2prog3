@@ -9,7 +9,7 @@ void RelatorioRevisoes::escreveRelatorio(){
   relatorio.open("relat-revisoes.csv");
   relatorio.imbue(locale(cout.getloc(),new punct_facet<char,','>));
 
-  relatorio << "Artigo;Autor de contato;Média das avaliações;Revisor 1; Revisor 2; Revisor 3";
+  relatorio << "Artigo;Autor de contato;Média das avaliações;Revisor 1;Revisor 2;Revisor 3";
 
   set<Artigo*,ArtComp>::iterator it;
 	// Registra o relatório de revisões de acordo com as especificações

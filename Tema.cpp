@@ -1,16 +1,17 @@
-    #include "Tema.h"
-        string Tema::getTitulo() const{
-            return titulo;
-        }
+#include "Tema.h"
 
-        void Tema::vinculaRevisor(Revisor* revisor){
-            revisores.insert(revisor);
-        }
+string Tema::getTitulo() const{
+    return titulo;
+}
 
-        int Tema::getQuantidadeRevisores(){
-            return revisores.size();
-        }
+void Tema::vinculaRevisor(Revisor* revisor){
+    revisores.insert(revisor);
+}
 
-        bool Tema::contemRevisor(Revisor* revisor){
-            return revisores.find(revisor) != revisores.end();
-        }
+int Tema::getQuantidadeRevisores(){
+    return revisores.size();
+}
+
+bool Tema::contemRevisor(Revisor* revisor){
+    return revisores.find(revisor) != revisores.end();
+}

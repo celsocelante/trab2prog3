@@ -10,6 +10,7 @@ private:
     set<Revisor*> revisores;
 
     Tema() {}
+
 public:
     Tema(string t, int cdg){
         titulo = t;
