@@ -11,7 +11,6 @@ private:
 
     Tema() {}
 public:
-    //virtual ~Tema() { }
     Tema(string t, int cdg){
         titulo = t;
         codigo = cdg;

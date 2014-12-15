@@ -48,4 +48,12 @@ public:
   double getArtigosRevisados();
 };
 
+
+template <class charT, charT sep>
+class punct_facet: public std::numpunct<charT> {
+protected:
+    charT do_decimal_point() const { return sep; }
+};
+
+
 #endif /* REVISTA_H */

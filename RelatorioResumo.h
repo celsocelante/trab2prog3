@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iomanip>
 #include "Revista.h"
+#include <locale>
 
 class RelatorioResumo {
 

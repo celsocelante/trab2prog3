@@ -7,11 +7,10 @@ void RelatorioRevisores::escreveRelatorio(){
   ofstream relatorio;
 
   relatorio.open("relat-revisores.csv");
-  relatorio.imbue(locale(""));
+  relatorio.imbue(locale(cout.getloc(),new punct_facet<char,','>));
 
 
   // Registra o relatório de revisores de acordo com as especificações
-
   relatorio << "Revisor;Qtd. artigos revisados;Média das notas atribuídas";
 
   set<Colaborador*,ClbComp>::iterator it;

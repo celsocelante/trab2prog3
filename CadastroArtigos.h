@@ -14,15 +14,12 @@
 using namespace std;
 
 class CadastroArtigos {
-    
-    //private:
-	
-    
+private:
     CadastroArtigos(){}
 
-    public:
+public:
 	CadastroArtigos(const char* entrada, Revista* revista);
-        
+
 };
 
 #endif

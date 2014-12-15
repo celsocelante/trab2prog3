@@ -17,7 +17,6 @@ CadastroRevisoes::CadastroRevisoes(const char* entrada, Revista* revista){
 
   while (getline(inf, linha)) {
     stringstream lineStream(linha);
-
     getline(lineStream,codigo,';');
     // Converte o string lido para inteiro
     codigo_int = atoi(codigo.c_str());
@@ -60,10 +59,9 @@ CadastroRevisoes::CadastroRevisoes(const char* entrada, Revista* revista){
 
       Artigo* artigo = revista->getEdicao()->buscaArtigo(codigo_int);
       if(artigo == NULL){
-
         texto_inconsistencia_stream.str("");
         // Trata insconsistencia #9: código do artigo não está cadastrado em artigos submetidos à edição
-        texto_inconsistencia_stream << "O código " << codigo_int + " encontrado no cadastro de revisões não corresponde a um artigo cadastrado.";
+        texto_inconsistencia_stream << "O código " << codigo_int << " encontrado no cadastro de revisões não corresponde a um artigo cadastrado.";
         texto_inconsistencia = texto_inconsistencia_stream.str();
         Inconsistencia* i = new Inconsistencia(texto_inconsistencia,9);
 
@@ -72,6 +70,7 @@ CadastroRevisoes::CadastroRevisoes(const char* entrada, Revista* revista){
       }
 
       else{
+
         artigo->adicionaAvaliacao(avaliacao);
 
         r->vinculaRevisao(artigo);
@@ -97,7 +96,6 @@ CadastroRevisoes::CadastroRevisoes(const char* entrada, Revista* revista){
   // Trata inconsistencia #11: revisor não habilitado a revisar artigo sob tema da edição
   ostringstream texto_inconsistencia_stream;
   string texto_inconsistencia;
-
 
   set<Artigo*>::iterator it;
 

@@ -7,7 +7,7 @@ void RelatorioRevisoes::escreveRelatorio(){
   ofstream relatorio;
 
   relatorio.open("relat-revisoes.csv");
-  relatorio.imbue(locale(""));
+  relatorio.imbue(locale(cout.getloc(),new punct_facet<char,','>));
 
   relatorio << "Artigo;Autor de contato;Média das avaliações;Revisor 1; Revisor 2; Revisor 3";
 

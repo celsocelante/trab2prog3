@@ -40,6 +40,7 @@ CadastroTemas::CadastroTemas(const char* entrada, Revista* revista){
      Colaborador* c = revista->buscaColaborador(autor_int);
 
      if(c == NULL || dynamic_cast<Autor*>(c) != 0){
+			texto_inconsistencia_stream.str("");
       //Trata inconsistencia #3: nao ha revisor correspondente a este codigo no cadastro de pessoas
       texto_inconsistencia_stream << "O código " << autor_int << " associado ao tema " << "\"" << nome << "\"" << " não corresponde a um revisor cadastrado.";
       // Converte o texto para string
@@ -54,6 +55,7 @@ CadastroTemas::CadastroTemas(const char* entrada, Revista* revista){
      }
     }
     if(tema->getQuantidadeRevisores() < 3){
+			texto_inconsistencia_stream.str("");
       //Trata inconsistencia #4: tema com menos de 3 revisores
       texto_inconsistencia_stream << "O tema " << "\""<< nome << "\"" << " possui apenas " << tema->getQuantidadeRevisores() << " revisores. " << "São necessários no minimo 3 revisores.";
       // Converte o texto para string

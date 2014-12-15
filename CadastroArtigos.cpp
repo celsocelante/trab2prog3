@@ -51,7 +51,7 @@ CadastroArtigos::CadastroArtigos(const char* entrada, Revista* revista){
      if(c == NULL || !(dynamic_cast<Autor*>(c) != 0)){ // Checa se é instancia de autor
       // Trata a inconsistencia #6: autor não corresponde a um autor no cadastro de pessoas
 
-      texto_inconsistencia_stream << "O código " << autor_int << " associado ao artigo " << "\"" << titulo << "\"" << " não corresponde a um autor cadastrado." << endl;
+      texto_inconsistencia_stream << "O código " << autor_int << " associado ao artigo " << "\"" << titulo << "\"" << " não corresponde a um autor cadastrado.";
       // Converte o texto para string
       texto_inconsistencia = texto_inconsistencia_stream.str();
 
@@ -67,14 +67,12 @@ CadastroArtigos::CadastroArtigos(const char* entrada, Revista* revista){
 
    }
 
-   if(!contato.empty()){//Há mais de um autor
-
+   if(autores.length()!=4){//Há mais de um autor
       contato_int = atoi(contato.c_str());
       Colaborador* c = revista->buscaColaborador(contato_int);
-
       if(c == NULL || !(dynamic_cast<Autor*>(c) != 0)){
         texto_inconsistencia_stream.str("");
-        // Trata a inconsistência #7: autor não corresponde a um autor no cadastro de pessoas
+        // Trata a inconsistência #6: autor não corresponde a um autor no cadastro de pessoas
         texto_inconsistencia_stream << "O código " << contato_int << " associado ao artigo " << "\"" << titulo << "\"" << " não corresponde a um autor cadastrado.";
         // Converte o texto para string
         texto_inconsistencia = texto_inconsistencia_stream.str();

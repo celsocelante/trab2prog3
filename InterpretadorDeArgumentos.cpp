@@ -35,9 +35,7 @@ InterpretadorDeArgumentos::InterpretadorDeArgumentos(char* args[], int argc){
     }
 }
 
-// Método para retornar o que foi processado pelo classe
-
-
+// Método para retornar o que foi processado pela classe
 vector<char*> InterpretadorDeArgumentos::retornaEntradas(){
 
   return entradas;

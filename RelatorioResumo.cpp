@@ -9,7 +9,7 @@ void RelatorioResumo::escreveRelatorio(){
 
 	ofstream resumo;
 	resumo.open("relat-resumo.txt");
-	resumo.imbue(locale(""));
+	resumo.imbue(locale(cout.getloc(),new punct_facet<char,','>));
 
 	//Cabeçalho do Resumo
 
@@ -17,13 +17,15 @@ void RelatorioResumo::escreveRelatorio(){
 	//Tratar data
 	if(edicao->getTema() != NULL)
 		resumo << "Tema: " << edicao->getTema()->getTitulo() << endl;
+	else
+		resumo << "Tema: " << endl;
 
 	resumo << "Editor-chefe: ";
 	if(edicao->getEditorChefe() != NULL)
 		resumo << edicao->getEditorChefe()->getNome();
 
 	resumo << endl << endl;
-	resumo << "Consistência dos dados:" << endl;
+	resumo << "Consistência dos dados:";
 
 	if(!revista->getInconsistencias()->empty()){
 		// Imprime no arquivo de saída todas as inconsistências armazenadas no objeto revista
@@ -31,12 +33,12 @@ void RelatorioResumo::escreveRelatorio(){
 		for(it = revista->getInconsistencias()->begin(); it != revista->getInconsistencias()->end();it++){
 			Inconsistencia* i = *it;
 			resumo << endl;
-			resumo << "Erro " << i->getTipo() << ": " << i->getMensagem();
+			resumo << "- Erro " << i->getTipo() << ": " << i->getMensagem();
 		}
 	}
 	else{
 		// Caso não haja qualquer inconsistência, uma mensagem informando a situação é inserida no arquivo
-		resumo << "- Nenhum problema encontrado." << endl << endl;
+		resumo << endl << "- Nenhum problema encontrado." << endl << endl;
 		// Insere no arquivo a quantidade de artigos submetidos, revisoes capacitados e envolvidos
 
 		resumo << "Artigos submetidos: " << revista->getEdicao()->getArtigos()->size() << endl;
